@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: var(--transition);
+  }
+  
+  .container{
+    width: 100%;
+    height: 100vh;
+    background-position:center;
+    background-size:cover;
+
+
+}
+.logo{
+    width:400px;
+    height: 300px;
+    size:50%;
+    margin:10px;
+
+}
+
+.note{
+    font-size: 10px;
+    margin-bottom:60px;
+    color: #0c0e0d;
+}
+
+.logbtn{
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin:  20px;
+    width: 100px;
+    padding: 8px 0;
+    transition: 0.4s;
+    border-radius:15px;
+}
+
+.signbtn{
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin:  18px;
+    width: 100px;
+    padding: 10px 0;
+    transition: 0.4s;
+    border-radius:15px;
+    
+}
+.logbtn:hover {
+    color: white;
+    width:10;
+    background-color: #18cea0;
+  }
+.signbtn:hover {
+    color: white;
+    width:10;
+    background-color: #18cea0;
+  }
