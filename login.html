@@ -20,7 +20,7 @@
                         <input type="text" placeholder="Password" id="password">
                     </div>
                     <div>
-                        <button class="log">Login</button>
+                        <button class="log" onclick="register()">Login</button>
         
                     </div>
        
@@ -30,7 +30,7 @@
     </div>
 
     </body>
-
+    <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase.js'></script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
@@ -51,57 +51,21 @@
         };
       
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        firebase.initializeApp(firebaseConfig);
+       
 
         // initializing variables
-        const auth =firebase.auth()
-        const database=firebase.database()
-
+        const auth =firebase.auth();
+        const database=firebase.database();
+        console.log("Hai user");
         //setupping function
         function register(){
-            email=document.getElementById('email').value
-            password=document.getElementById('password').value
+            var email=document.getElementById('email').value;
+           var password=document.getElementById('password').value;
+            const promise=auth().createUserWithEmailAndPassword(email,password);
+            promise.catch(e=>alert(e.message));
+            alert("login Successful");
+            console.log("Hai user");
         }
-
-        //authentication
-        auth.createUserWithEmailAndPassword(email,password)
-        .then(function(){
-            var user=auth.currentUser
-            //add this user to firebase database
-            var database_ref=database.ref()
-                   //create user data
-            var user_data={
-                email:email,
-                password:password
-            }
-            //push to firebase database
-        database_ref.child('users/'+user.uid).set(user_data)
-
-        })
-        .catch(function(error){
-            var error_code=error.code
-            var error_message=error.message
-            alert(error_message)
-        })
-        
-        
-        //validating inputs
-        function validate(email,password){
-            expression=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-            if(expression.test(email)==true){
-                return true
-            }else{w
-            //email not good
-            return false;
-
-            }
-            if(password<6){
-                return false
-            }
-            else{
-                return true
-            }
-        }
-      </script>
+        </script>
 </html>
