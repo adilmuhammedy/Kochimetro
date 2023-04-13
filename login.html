@@ -20,7 +20,7 @@
                 </div>
             <div class="new-user">
                 <h2>New user? sign in with google</h2>
-                <button class="sign" id='google-sign' name="signn">Google signup</button>
+                <button class="sign" id='googlesign' name="signn">Google signup</button>
             </div>
             </form>
         </div>
@@ -30,7 +30,7 @@
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js'></script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'></script>
     <script type="text/javascript" src="app.js">
-         
+         import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
     </script>
     </body>
 
