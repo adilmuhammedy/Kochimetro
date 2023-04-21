@@ -413,8 +413,7 @@
   </div>
 
   <div id="fareCalculator" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.5); z-index:9999;">
-    <div class="background"></div>
-    <div class="container" style="margin:auto; margin-top:100px; background-color:#fff; padding:20px; width:300px;">
+    <div class="container" style="margin:auto; margin-top:100px; background-color:#fff; padding:20px; width:600px;">
       <h1>FARE CALCULATOR</h1>
       <form>
         <label for="from">From:</label>
@@ -433,7 +432,7 @@
         </select><br>
         <label for="tickets">Number of tickets:</label>
         <input type="integer" id="tickets" value="1"><br>
-  
+  <div>
         <label for="ticket-type">Ticket type:</label>
           <select id="ticket-type">
           <option value="one-way">one-way</option>
@@ -444,7 +443,7 @@
         <select id="time-slot">
           <option value="6-8 am">6-8 am</option>
           <option value="9-11 pm">9-11 pm</option>
-        </select>			
+        </select>			</div>
         <button type="button" onclick="calculate()">Calculate Fare</button>
         <div id="result"></div>
       </form>

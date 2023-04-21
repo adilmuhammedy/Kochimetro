@@ -682,3 +682,64 @@ tr:hover {
   font-size:13px;
   margin-bottom:0;
 }
+.background {
+	background-image: url(background.jpg);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.container {
+	background-color: #fff;
+	padding: 20px;
+	margin: 50px auto;
+	width: 400px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+label {
+	margin-right: 10px;
+}
+
+select, input {
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+	margin-left: auto;
+	margin-right: 0;
+	background-color: #0066cc;
+	color: #fff;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#result {
+	margin-top: 20px;
+	font-weight: bold;
+	text-align: center;
+}
