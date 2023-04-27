@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Sign in page for metro</title>
-        <link rel="stylesheet" href="login.css">
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css">
 
     </head>
     <body>
@@ -13,16 +13,17 @@
             <form>
                 <div class="input-group">
 
-                        <h3>Please Login</h3>
+                        <h6>Already registered user?</h6>
                         <input type="text" placeholder="Email" id="email">
                         <input type="text" placeholder="Password" id="password">
                         <button class="log" id='login' name="login">Login</button>       
                 </div>
-            <div class="new-user">
-                <h2>New user? sign in with google</h2>
-                <button class="sign" id='googlesign' name="signn">Google signup</button>
-            </div>
             </form>
+                <h6>New user?</h6>
+                    <button type="button" id="signup" class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
+                    <button type="button" id="googlesign" class="googlesign">Sign in with google</button>
+                
+           
         </div>
     </div>
    
@@ -30,7 +31,7 @@
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js'></script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'></script>
     <script type="text/javascript" src="app.js">
-         import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+         
     </script>
     </body>
 

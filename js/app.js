@@ -1,8 +1,5 @@
 
 
-
-console.log("hai user");
-
 const firebaseConfig = {
     apiKey: "AIzaSyDjBgmzmlwmso2pJ6IUSaROuAoRKLmynpw",
     authDomain: "metro-c2e76.firebaseapp.com",
@@ -53,27 +50,21 @@ const firebaseConfig = {
 
 
 // google auth
-const provider = new firebase.auth().GoogleAuthProvider();
-document.getElementById('googlesign').addEventListener('click',(e)=>{
-  e.preventDefault()
+const provider = new firebase.auth.GoogleAuthProvider();
 
-firebase.auth().signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
+document.getElementById('googlesign').addEventListener('click',(e)=>{
+  e.preventDefault();
+  const auth = firebase.auth();
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      // Handle successful authenticatison
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      // Handle authentication error
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+    });
 })

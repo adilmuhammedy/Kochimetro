@@ -196,10 +196,29 @@
                 <div class="s-box">
                   <select id="select-box-1" class="select2" style="width: 250.88px;">
                     <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
+                    <option value="option1">Aluva</option>
+                    <option value="option2">Pulinchodu</option>
+                    <option value="option3">Companypady</option>
+                    <option value="option4">Ambattukavu</option>
+                    <option value="option5">Muttom</option>
+                    <option value="option5">Kalamassery Twon</option>
+                    <option value="option5">Cochin University</option>
+                    <option value="option5">Pathadipalam</option>
+                    <option value="option5">Edapally</option>
+                    <option value="option5">Changampuzha Park</option>
+                    <option value="option5">Palarivattom</option>
+                    <option value="option5">JLN Stadium</option>
+                    <option value="option5">Kaloor</option>
+                    <option value="option5">Town Hall</option>
+                    <option value="option5">M.G Road</option>
+                    <option value="option5">Maharaja's College</option>
+                    <option value="option5">Kadavanthra</option>
+                    <option value="option5">Elamkulam</option>
+                    <option value="option5">Vyttila</option>
+                    <option value="option5">Thykkoodam</option>
+                    <option value="option5">Petta</option>
+                    <option value="option5">Vadakkekotta</option>
+                    <option value="option5">SN Junction</option>
                   </select> 
                 </div>  
                 <button class="search-icon"><i class="fa fa-search"></i></button>
@@ -443,49 +462,97 @@
       <form>
         <label for="from">From:</label>
         <select id="from">
-          <option value="station1">CUSAT</option>
-          <option value="station2">EDAPALLY</option>
-          <option value="station3">PALARIVATTOM</option>
-          <option value="station4">KALOOR</option>
+             <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
+          <option value="1">Aluva</option>
+          <option value="2">Pulinchodu</option>
+          <option value="3">Companypady</option>
+          <option value="4">Ambattukavu</option>
+          <option value="5">Muttom</option>
+          <option value="6">Kalamassery Twon</option>
+          <option value="7">Cochin University</option>
+          <option value="8">Pathadipalam</option>
+          <option value="9">Edapally</option>
+          <option value="10">Changampuzha Park</option>
+          <option value="11">Palarivattom</option>
+          <option value="12">JLN Stadium</option>
+          <option value="13">Kaloor</option>
+          <option value="14">Town Hall</option>
+          <option value="15">M.G Road</option>
+          <option value="16">Maharaja's College</option>
+          <option value="17">Ernakulam South</option>
+          <option value="18">Kadavanthra</option>
+          <option value="19">Elamkulam</option>
+          <option value="20">Vyttila</option>
+          <option value="21">Thykkoodam</option>
+          <option value="22">Petta</option>
+          <option value="23">Vadakkekotta</option>
+          <option value="24">SN Junction</option>
         </select>
         <label for="to">To:</label>
         <select id="to">
-          <option value="station1">KALOOR</option>
-          <option value="station2">JLN STADIUM</option>
-          <option value="station3">ERNAKULAM SOUTH</option>
-          <option value="station4">CUSAT</option>
+          <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
+          <option value="1">Aluva</option>
+          <option value="2">Pulinchodu</option>
+          <option value="3">Companypady</option>
+          <option value="4">Ambattukavu</option>
+          <option value="5">Muttom</option>
+          <option value="6">Kalamassery Twon</option>
+          <option value="7">Cochin University</option>
+          <option value="8">Pathadipalam</option>
+          <option value="9">Edapally</option>
+          <option value="10">Changampuzha Park</option>
+          <option value="11">Palarivattom</option>
+          <option value="12">JLN Stadium</option>
+          <option value="13">Kaloor</option>
+          <option value="14">Town Hall</option>
+          <option value="15">M.G Road</option>
+          <option value="16">Maharaja's College</option>
+          <option value="17">Ernakulam South</option>
+          <option value="18">Kadavanthra</option>
+          <option value="19">Elamkulam</option>
+          <option value="20">Vyttila</option>
+          <option value="21">Thykkoodam</option>
+          <option value="22">Petta</option>
+          <option value="23">Vadakkekotta</option>
+          <option value="24">SN Junction</option>
         </select><br>
         <label for="tickets">Number of tickets:</label>
         <input type="integer" id="tickets" value="1"><br>
   <div>
         <label for="ticket-type">Ticket type:</label>
           <select id="ticket-type">
-          <option value="one-way">one-way</option>
+          <option value="one-way">One-way</option>
           <option value="two-way">Two-way</option>
         </select>
   
         <label for="Time">Time-slot</label>
         <select id="time-slot">
-          <option value="6-8 am">6-8 am</option>
-          <option value="9-11 pm">9-11 pm</option>
+          <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
+          <option value="mrng">6:00 am-8:00 am</option>
+          <option value="day">8:00 am-9:00 pm</option>
+          <option value="nyt">9:00 pm-11:00 pm</option>
         </select>			</div>
-        <button type="button" onclick="calculate()">Calculate Fare</button>
+        <button type="button" onclick="calculator()">Calculate Fare</button>
         <div id="result"></div>
       </form>
       <button onclick="closeFareCalculator()" style="margin-top:10px;">Close</button>
     </div>
   </div>
   
-  
-  <script>
-    function openFareCalculator() {
-      document.getElementById("fareCalculator").style.display = "block";
-    }
-  
-    function closeFareCalculator() {
-      document.getElementById("fareCalculator").style.display = "none";
-    }
-  </script>
+
+    <script src="js/farecalculator.js"></script>
+
+    <!--AFTER FARE CALCULATION-->
+
+    <div id="fareDetails" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.5); z-index:9999;">
+      <div class="container" style="margin:auto; margin-top:200px; background-color:#fff; padding:50px; width:600px;">
+        <h1>FARE DETAILS</h1>
+        <div style="padding:50px;" >
+          <h4 id="details" style="left:100px;"></h4>
+        </div>
+        <button onclick="closeFareDetails()" style="margin-top:10px; text-align: center;">Close</button>
+      </div>
+    </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
       <script src="js/custom.js"></script>

@@ -728,7 +728,7 @@ select, input {
 }
 
 button {
-	margin-left: auto;
+
 	margin-right: 0;
 	background-color: #0066cc;
 	color: #fff;
@@ -738,8 +738,10 @@ button {
 	cursor: pointer;
 }
 
-#result {
+.result {
+  left:200px;
 	margin-top: 20px;
 	font-weight: bold;
 	text-align: center;
 }
+
