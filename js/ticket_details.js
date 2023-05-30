@@ -1,7 +1,8 @@
-document.getElementById("fare").addEventListener("click", function(){
-    document.querySelector(".popup").style.display="flex";
-  })
+function ticket_confirm(){
+    window.location = "confirmation.html";
+}
 
-document.getElementById("go-back").addEventListener("click", function(){
-    document.querySelector(".popup").style.display="none";
-})
+function edit_details(){
+    window.location = "home.html";
+}
+
