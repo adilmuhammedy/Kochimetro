@@ -157,7 +157,7 @@
                 <div class="form-group form-grp">
                   <div class="p1" id="div2">
                     <label for="select3">Time slot :</label>
-                    <select class="select2" style="width: 160.48px;">
+                    <select id="ts" class="select2" style="width: 160.48px;">
                       <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
                       <option value="option1">6:00 am - 8:00 am</option>
                       <option value="option2">8:00 am -9:00 pm</option>
@@ -166,7 +166,7 @@
                   </div>
                   <div class="p1">
                     <label for="select5">Ticket type :</label>
-                    <select class="select2" style="width: 160.48px;">
+                    <select id="tt" class="select2" style="width: 160.48px;">
                       <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
                       <option value="option1">Normal</option>
                       <option value="option2">Student</option>
@@ -177,12 +177,12 @@
 
                 <div class="form-group">
                     <label>No of Passengers :</label>
-                    <input class="i" type="number" id="nop" required />
+                    <input id="nop"  class="i" type="number" id="nop" required />
                 </div>
                 <br>
                 <div class="buttons">
                     <button type="reset" id="my-reset-button" onclick="resetSelect2()">Reset</button>
-                    <button type="button" id="fare">Show Route & Fare</button>
+                    <button type="button" class="show-route" id="fare" onclick = "displayValue()">Show Route & Fare</button>
                 </div>
                 <br>
               </form>
@@ -538,6 +538,71 @@
       <button onclick="closeFareCalculator()" style="margin-top:10px;">Close</button>
     </div>
   </div>
+
+
+
+  <div class="popup">
+    
+    <div class="ticket-content" >
+      <h2 >Ticket Details</h2>
+
+        <div class="details">
+          <div class="first">
+            <span class="from">From :</span> 
+          </div>
+
+          <div class="second">
+            <p id="p1">Lorem, ipsum.</p>
+          </div>
+        </div>
+  
+        <div class="details">
+          <div class="first">
+            <span class="from">To :</span> 
+          </div>
+
+          <div class="second">
+            <p>Lorem ipsum dolor </p>
+          </div>
+        </div>
+  
+        <div class="details">
+          <div class="first">
+            <span class="from">Time slot :</span> 
+          </div>
+
+          <div class="second">
+            <p>Lorem ipsum dolor </p>
+          </div>
+        </div>
+  
+        <div class="details">
+          <div class="first">
+            <span class="from">Ticket type :</span> 
+          </div>
+
+          <div class="second">
+            <p>Lorem ipsum dolor </p>
+          </div>
+        </div>
+  
+        <div class="details">
+          <div class="first">
+            <span class="from">No of passengers:</span> 
+          </div>
+
+          <div class="second">
+            <p>Lorem ipsum dolor </p>
+          </div>
+        </div>
+  
+        <div class="buttons-2">
+          <button type="button" id="go-back" class="go-back">Back</button>
+          <button type="button" id="confirm" class="confirm">Book Ticket</button>
+        </div>
+    </div>
+
+  </div>
   
 
     <script src="js/farecalculator.js"></script>
@@ -557,6 +622,10 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
       <script src="js/custom.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+      <script src="js/ticket_details.js"></script>
+
+      
 </body>
 
 </html>
