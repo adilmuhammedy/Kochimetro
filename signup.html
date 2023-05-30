@@ -12,17 +12,24 @@
             <form>
                 <div class="input-group">
                     <div class="input-field">
-                        <input type="text" placeholder="First name">
-                        <input type="text" placeholder="Lastname">
-                        <input type="text" placeholder="Email">
-                 
-                        <input type="text" placeholder="Password">
-                        <input type="text" placeholder="Confirm Password">
+                        <input type="text" id="firstname" placeholder="First name">
+                        <input type="text" id="lastname" placeholder="Lastname">
+                        <input type="text" id="email" placeholder="Email">
+                        <input type="text" id="password" placeholder="Password">
+                        <input type="text" id="confirmpassword" placeholder="Confirm Password">
                     </div>
                     <div>
-                        <button class="sign">Signin</button>
+                        <button class="sign" id="signin">Signin</button>
         
                     </div>
+                    <script type="module"src="js/signup.js">
+                                 import { getAuth, createUserWithEmailAndPassword } from "'https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'";
+                    </script>
+                       
+    <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'></script>
+   
        
                 </div>
             </form>
