@@ -728,7 +728,6 @@ select, input {
 }
 
 button {
-
 	margin-right: 0;
 	background-color: #0066cc;
 	color: #fff;
@@ -744,4 +743,6 @@ button {
 	font-weight: bold;
 	text-align: center;
 }
+
+
 
