@@ -1,45 +1,30 @@
 const express = require('express');
-const { json } = require('body-parser');
+const bodyParser = require('body-parser');
 const { toFile } = require('qrcode');
-const fs = require('fs');
 
 const app = express();
-// Middleware for parsing JSON data
-app.use(json());
-
-// Serve static files (HTML, CSS, JS)
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Handle form submission
-app.post('#', async (req, res) => {
-  // Get form data from the request body
-  const from = req.body.from;
-  const to = req.body.to;
-  const timeSlot = req.body.timeSlot;
-  const ticketType = req.body.ticketType;
-  const passengers = req.body.passengers;
+app.post('/submit-form', async (req, res) => {
+  const { from, to, timeSlot, ticketType, passengers } = req.body;
 
   // Perform any necessary backend processing or calculations
   // ...
 
-  // Create the response object
   const response = {
     ticketId: '12345', // Replace with actual ticket ID
   };
 
-  // Generate QR code
   const qrCodeText = `Ticket ID: ${response.ticketId}`;
   const qrCodeImagePath = 'qrcode.png';
   await generateQRCode(qrCodeText, qrCodeImagePath);
 
-  // Attach QR code image URL to the response
   response.qrCodeImage = qrCodeImagePath;
 
-  // Send the response back to the client
   res.json(response);
 });
 
-// Function to generate QR code
 async function generateQRCode(text, imagePath) {
   try {
     const qrCodeOptions = {
@@ -54,7 +39,6 @@ async function generateQRCode(text, imagePath) {
   }
 }
 
-// Start the server
 app.listen(8080, () => {
   console.log('Server started on port 8080');
 });
