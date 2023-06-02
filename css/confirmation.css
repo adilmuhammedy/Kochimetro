@@ -138,4 +138,120 @@ body{
     }
 
   }
+  .back{
+    position: absolute;
+    background-color: rgb(234, 208, 9) ;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: #000000;
+    font-weight: 700;
+    top:620px;
+    left:700px;
+  }
+
+  .fticket{
+    position: absolute;
+    top: 200px; 
+    left: 600px;
+    width:300px;
+    height:400px;
+    box-shadow: 1px 0px 9px 3px rgba(1, 1, 1, 0.235);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+
+  .fromm{
+    position: absolute;
+    top: 170px;
+    left: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    
+  }
+  .fromm1{
+    position: absolute;
+    top: 170px;
+    left:170px;
+    font-size: 15px;
+    font-weight: 500;
+    
+  }
+  .to{
+    position: absolute;
+    top: 195px;
+    left: 40px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .to1{
+    position: absolute;
+    top: 195px;
+    left: 170px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .time{
+    position: absolute;
+    top: 220px;
+    left: 40px;
+    width:200px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .time1{
+    position: absolute;
+    top: 220px;
+    left: 170px;
+    width:200px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .ttype{
+    position: absolute;
+    top: 245px;
+    left: 40px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .ttype1{
+    position: absolute;
+    top: 245px;
+    left: 170px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .passengers{
+    position: absolute;
+    top: 270px;
+    left: 40px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  
+  .passengers1{
+    position: absolute;
+    top: 270px;
+    left: 170px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .total{
+    position: absolute;
+    top: 295px;
+    left: 40px;
+    font-size: 15px;
+    font-weight: 500;
+
+  }
+  .qrcode{
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    width: 150px;
+    height: 150px;
+  }
+ 
+  
   

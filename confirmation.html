@@ -6,77 +6,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket Confirmation</title>
     <link href="css/confirmation.css" rel="stylesheet" href="">
-
 </head>
 <body>
-    <div class="popup">
-    
-        <div class="ticket-content" >
+    <div id="popup" class="popup">
+        <div class="ticket-content" id="confirmation" >
           <h2 >Ticket Details</h2>
-    
             <div class="details">
               <div class="first">
                 <span class="from">From :</span> 
               </div>
-    
               <div class="second">
-                <span id="p1">Lorem, ipsum.</p>
+                <span id="p1"></p>
               </div>
             </div>
-      
             <div class="details">
               <div class="first">
                 <span class="from">To :</span> 
               </div>
-    
               <div class="second">
-                <span>Lorem ipsum dolor </p>
+                <span id="p2"></p>
               </div>
             </div>
-      
             <div class="details">
               <div class="first">
                 <span class="from">Time slot :</span> 
               </div>
-    
               <div class="second">
-                <span>Lorem ipsum dolor </p>
+                <span id="p3"> </span>
               </div>
             </div>
-      
             <div class="details">
               <div class="first">
                 <span class="from">Ticket type :</span> 
               </div>
-    
               <div class="second">
-                <span>Lorem ipsum dolor </p>
+                <span id="p4"></span>
               </div>
             </div>
-      
             <div class="details">
               <div class="first">
                 <span class="from">No of passengers:</span> 
               </div>
-    
               <div class="second">
-                <span>Lorem ipsum dolor </p>
+                <span id="p5"> </span>
               </div>
             </div>
-      
             <div class="buttons-2">
               <button type="button" id="go-back" class="go-back" onclick="edit_details()">Back</button>
               <button type="button" id="confirm" class="confirm">Book Ticket</button>
             </div>
         </div>
-
         <div class="warning">
             <img src="images/warning.png" alt="">
             <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et repellat autem aperiam accusantium, eius nam!</span>
         </div>
       </div>
+   
+   
+      
 
+      <script>
+              const from = localStorage.getItem("from");
+      const to = localStorage.getItem("to");
+      const timeSlot = localStorage.getItem("timeSlot");
+      const ticketType = localStorage.getItem("ticketType");
+      const passengers = localStorage.getItem("passengers");
+      document.getElementById("p1").textContent = from;
+      document.getElementById("p2").textContent = to;
+      document.getElementById("p3").textContent = timeSlot;
+      document.getElementById("p4").textContent = ticketType;
+      document.getElementById("p5").textContent = passengers;
+        // Retrieve the form details from the query parameters
+    // Retrieve the form values from local storage
+     //set onclick fn to confirm buto, try that
+     document.getElementById('confirm').addEventListener('click', async (event) => {
+  event.preventDefault();
+
+     
+        // Display the form details on the confirmation page
+
+
+  const requestBody = {
+    from,
+    to,
+    timeSlot,
+    ticketType,
+    passengers,
+  };
+
+  try {
+    // Send a POST request to the backend
+    const response = await fetch('http://localhost:8080/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    // Handle the response
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log("responseData and connection successful", responseData);
+      // Process the response data
+      // ...
+      // Redirect to a new page or display the response data
+      // ...
+      window.location.href = "ticket.html"; 
+
+
+}
+  else {
+      console.error('Form submission failed.');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+});
+  </script>
+     
       <script src="js/ticket_details.js"></script>
-    
+
 </body>
 </html>

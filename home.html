@@ -65,7 +65,7 @@
           <div class="col-4 inner custom-col">
             
             <div class="form-container">
-              <form action="#" id="form">
+              <form action="#" id="formm">
 
                 <div class="form-group">
                   <div class="heading1">
@@ -73,7 +73,7 @@
                   </div>
                   <br>
                   <label for="select1">From :</label>
-                  <select id="select1" class="select2" style="width: 334.3px;">
+                  <select id="from" class="select2" style="width: 334.3px;">
                     <option value="" class="pholder" disabled selected hidden>Click to select</option>
                     <option value="Aluva">Aluva</option>
                     <option value="Pulinchodu">Pulinchodu</option>
@@ -104,7 +104,7 @@
 
                 <div class="form-group" id="div1">
                   <label for="select2">To :</label>
-                  <select id="select2" class="select2" style="width: 334.3px;">
+                  <select id="to" class="select2" style="width: 334.3px;">
                     <option value="" class="pholder" disabled selected hidden>Click to select</option>
                     <option value="Aluva">Aluva</option>
                     <option value="Pulinchodu">Pulinchodu</option>
@@ -137,16 +137,16 @@
                 <div class="form-group form-grp">
                   <div class="p1" id="div2">
                     <label for="select3">Time slot :</label>
-                    <select id="ts" class="select2" style="width: 160.48px;">
+                    <select id="time" class="select2" style="width: 160.48px;">
                       <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
-                      <option value="option1">6:00 am - 8:00 am</option>
-                      <option value="option2">8:00 am -9:00 pm</option>
-                      <option value="option3">9:00 pm - 11:00 pm</option>
+                      <option value="6:00-8:00">6:00 am - 8:00 am</option>
+                      <option value="8:00-21:00">8:00 am -9:00 pm</option>
+                      <option value="21:00-23:00">9:00 pm - 11:00 pm</option>
                     </select>
                   </div>
                   <div class="p1">
                     <label for="select5">Ticket type :</label>
-                    <select id="tt" class="select2" style="width: 160.48px;">
+                    <select id="ttype" class="select2" style="width: 160.48px;">
                       <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to select</option>
                       <option value="One-way">One-way</option>
                       <option value="Two-way">Two-way</option>
@@ -156,72 +156,53 @@
 
                 <div class="form-group">
                     <label>No of Passengers :</label>
-                    <input id="nop"  class="i" type="number" id="nop" required />
+                    <input id="nop"  class="i" type="number" id="nop" />
                 </div>
                 <br>
                 <div class="buttons">
                     <button type="reset" id="my-reset-button" onclick="resetSelect2()">Reset</button>
-<<<<<<< HEAD
-                    <button type="button" class="show-route" id="fare" onclick = "ticket_confirm()">Show Route & Fare</button>
-=======
-                    <button type="submit" id="fare">Show Route & Fare</button>
->>>>>>> bb65168d714281fecee7ac873a6a18d2c1697837
+                    <button type="submit" class="submit" id="submit">Show Route & Fare</button>
                 </div>
                 <br>
               </form>
               <script>
                 // Submit form data to the backend
-                document.getElementById('form').addEventListener('submit', async (event) => {
+             
+                document.getElementById('formm').addEventListener('submit', async (event) => {
                   event.preventDefault();
-              
+                  
                   // Get form data
                   const form = event.target;
-                  const from = form.select1.value;
-                  const to = form.select2.value;
-                  const timeSlot = form.select3.value;
-                  const ticketType = form.select5.value;
-                  const passengers = form.nop.value;
-              
-                  // Create the request body
-                  const requestBody = {
-                    from,
-                    to,
-                    timeSlot,
-                    ticketType,
-                    passengers,
-                  };
-              
-                  try {
-                    // Send a POST request to the backend
-                    const response = await fetch('/submit-form', {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',
-                      },
-                      body: JSON.stringify(requestBody),
-                    });
-              
-                    // Handle the response
-                    if (response.ok) {
-                      const responseData = await response.json();
-                      // Process the response data
-                      // ...
-              
-                      // Redirect to a new page or display the response data
-                      // ...
-                    } else {
-                      console.error('Form submission failed.');
-                    }
-                  } catch (error) {
-                    console.error('An error occurred:', error);
+                  const from = formm.from.value;
+                  const to = formm.to.value;
+                  const timeSlot = formm.time.value;
+                  const ticketType = formm.ttype.value;
+                  const passengers = formm.nop.value;
+                  if(from==""||to==""||timeSlot==""||ticketType==""||passengers==""){
+                    alert("Please fill all the fields");
+                    return;
                   }
+                  else if(from==to){
+                    alert("From and To cannot be same");
+                    return;
+                  }
+                  else if(passengers<=0){
+                    alert("No of passengers cannot be less than 1");
+                    return;
+                  }
+                  localStorage.setItem("from", from);
+                  localStorage.setItem("to", to);
+                  localStorage.setItem("timeSlot", timeSlot);
+                  localStorage.setItem("ticketType", ticketType);
+                  localStorage.setItem("passengers", passengers);
+                  window.location.href = "/confirmation.html";
                 });
-              </script>
-
+                  // Create the request body
+                 
+                </script>
               <!--backend-->
               <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-              <script src="app.js"></script>
-             
+          
 
 
 

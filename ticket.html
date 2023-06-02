@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <link href="css/confirmation.css" rel="stylesheet" href="">
+</head>
+<body>
+
+
+<div id="fticket" class="fticket">
+    <div class="contents">
+      <img src="qrcode.png" alt="QR Code" class="qrcode">
+      <h4 class="fromm">From: </h4>
+      <h4 id="p1" class="fromm1" ></h4>
+      <h4 class="to">To: </h4>
+      <h4 id="p2" class="to1"></h4>
+      <h4 class="time">Time: </h4>
+      <h4 id="p3" class="time1"></h4>
+      <h4 class="ttype">Ticket-type: </h4>
+      <h4  id="p4" class="ttype1"></h4>
+      <h4 class="passengers">Passengers: </h4>
+      <h4 id="p5" class="passengers1"></h4>
+      <h4 class="total">Fare:</h4>
+    </div>
+  </div>
+  <button type="button" id="go-back" class="back" onclick="goback()">Go Back</button>
+  <script>
+    // ... Your existing code for retrieving form details and form submission ...
+
+    // After the form submission is successful, hide the popup and display the fticket section
+
+
+ 
+    
+    // Display the form details on the confirmation page
+  
+        const from = localStorage.getItem("from");
+        const to = localStorage.getItem("to");
+        const timeSlot = localStorage.getItem("timeSlot");
+        const ticketType = localStorage.getItem("ticketType");
+        const passengers = localStorage.getItem("passengers");
+        
+        document.getElementById("p1").textContent = from;
+        document.getElementById("p2").textContent = to;
+        document.getElementById("p3").textContent = timeSlot;
+        document.getElementById("p4").textContent = ticketType;
+        document.getElementById("p5").textContent = passengers;
+
+    // Call the necessary functions
+    function goback(){
+    window.location = "home.html";
+}
+
+</script>
+  </body>
