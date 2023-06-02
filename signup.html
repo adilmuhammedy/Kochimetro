@@ -12,25 +12,65 @@
             <form>
                 <div class="input-group">
                     <div class="input-field">
-                        <input type="text" id="firstname" placeholder="First name">
+                        <input type="text" id="firstname" placeholder="First name" required>
                         <input type="text" id="lastname" placeholder="Lastname">
-                        <input type="text" id="email" placeholder="Email">
-                        <input type="text" id="password" placeholder="Password">
-                        <input type="text" id="confirmpassword" placeholder="Confirm Password">
+                        <input type="text" id="email" placeholder="Email" required>
+                        <input type="password" id="password" placeholder="Password" onkeyup="checkPasswordStrength(this.value)" required>
+                        <p id="password-strength"></p>
+                        <input type="password" id="confirmpassword" placeholder="Confirm Password" onkeyup="checkPasswordMatch()" required>
+                        <p id="password-match"></p>
                     </div>
+                        <a href="login.html" class="have">Already have an account?</p>
                     <div>
                         <button class="sign" id="signin">Signin</button>
-        
                     </div>
-                    <script type="module"src="js/signup.js">
-                                 import { getAuth, createUserWithEmailAndPassword } from "'https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'";
-                    </script>
-                       
+                    <script>
+                    function checkPasswordMatch() {
+                        var passwordInput = document.getElementById('password');
+                        var confirmPasswordInput = document.getElementById('confirmpassword');
+                        var passwordMatchIndicator = document.getElementById('password-match');
+                  
+                        if (passwordInput.value === confirmPasswordInput.value) {
+                          passwordMatchIndicator.innerHTML = '<span class="match">Passwords match</span>';
+                        } else {
+                          passwordMatchIndicator.innerHTML = '<span class="mismatch">Passwords do not match</span>';
+                        }
+                      }
+                        function checkPasswordStrength(password) {
+                          var strengthIndicator = document.getElementById('password-strength');
+                          var strength = 0;
+                    
+                          // Add rules to determine password strength
+                          if (password.length >= 8) {
+                            strength += 1;
+                          }
+                          if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+                            strength += 1;
+                          }
+                          if (/\d/.test(password)) {
+                            strength += 1;
+                          }
+                          if (/[!@#$%^&*()\-=_+[\]{};':"\\|,.<>/?]+/.test(password)) {
+                            strength += 1;
+                          }
+                          // Update strength indicator based on the calculated strength
+                          if (strength === 0) {
+                            strengthIndicator.innerHTML = '';
+                          } else if (strength <= 2) {
+                            strengthIndicator.innerHTML = '<span class="weak">Weak</span>';
+                          } else if (strength === 3) {
+                            strengthIndicator.innerHTML = '<span class="medium">Medium</span>';
+                          } else {
+                            strengthIndicator.innerHTML = '<span class="strong">Strong</span>';
+                          }
+                        }
+                      </script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js'></script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js'></script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'></script>
-   
-       
+    <script type="text/javascript" src="js/signup.js">
+        import { getAuth, createUserWithEmailAndPassword } from "'https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'";
+   </script>
                 </div>
             </form>
         </div>

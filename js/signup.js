@@ -1,4 +1,3 @@
-import { getAuth } from './node_modules/auth-module';
 const firebaseConfig = {
     apiKey: "AIzaSyDjBgmzmlwmso2pJ6IUSaROuAoRKLmynpw",
     authDomain: "metro-c2e76.firebaseapp.com",
@@ -9,19 +8,18 @@ const firebaseConfig = {
     appId: "1:443513878126:web:af44ba5a20e97a0654587f",
     measurementId: "G-PF5GKDP950"
   };
-
   firebase.initializeApp(firebaseConfig);
-  const auth = getAuth();
+  const auth = firebase.auth();
   document.getElementById('signin').addEventListener('click',(e)=>{
     e.preventDefault()
-  
   const email=document.getElementById('email').value;
   const password=document.getElementById('password').value;
-createUserWithEmailAndPassword(auth, email, password)
+auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     alert("user created");
+    console.log(user);
     // ...
   })
   .catch((error) => {

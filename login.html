@@ -4,7 +4,6 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Login</title>
         <link rel="stylesheet" href="css/login.css">
-
     </head>
     <body>
     <div class="container">
@@ -12,8 +11,6 @@
             <h1>Login</h1>
             <form>
                 <div class="input-group">
-
-                        <h6>Already registered user?</h6>
                         <input type="text" placeholder="Email" id="email">
                         <input type="text" placeholder="Password" id="password">
                         <button class="log" id='login' name="login">Login</button>       
@@ -22,18 +19,13 @@
                 <h6>New user?</h6>
                     <button type="button" id="signup" class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
                     <button type="button" id="googlesign" class="googlesign">Sign in with google</button>
-                
-           
         </div>
     </div>
-   
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js'></script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js'></script>
     <script src='https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'></script>
     <script type="text/javascript" src="js/login.js">
-         
          import { getAuth, createUserWithEmailAndPassword } from "'https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js'";
     </script>
     </body>
-
 </html>

@@ -16,7 +16,7 @@
                 <span class="from">From :</span> 
               </div>
               <div class="second">
-                <span id="p1"></p>
+                <span id="p1"></span>
               </div>
             </div>
             <div class="details">
@@ -24,7 +24,7 @@
                 <span class="from">To :</span> 
               </div>
               <div class="second">
-                <span id="p2"></p>
+                <span id="p2"></span>
               </div>
             </div>
             <div class="details">
@@ -61,12 +61,8 @@
             <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et repellat autem aperiam accusantium, eius nam!</span>
         </div>
       </div>
-   
-   
-      
-
       <script>
-              const from = localStorage.getItem("from");
+      const from = localStorage.getItem("from");
       const to = localStorage.getItem("to");
       const timeSlot = localStorage.getItem("timeSlot");
       const ticketType = localStorage.getItem("ticketType");
@@ -81,11 +77,6 @@
      //set onclick fn to confirm buto, try that
      document.getElementById('confirm').addEventListener('click', async (event) => {
   event.preventDefault();
-
-     
-        // Display the form details on the confirmation page
-
-
   const requestBody = {
     from,
     to,
@@ -93,7 +84,6 @@
     ticketType,
     passengers,
   };
-
   try {
     // Send a POST request to the backend
     const response = await fetch('http://localhost:8080/submit-form', {
@@ -103,7 +93,6 @@
       },
       body: JSON.stringify(requestBody),
     });
-
     // Handle the response
     if (response.ok) {
       const responseData = await response.json();
@@ -113,8 +102,6 @@
       // Redirect to a new page or display the response data
       // ...
       window.location.href = "ticket.html"; 
-
-
 }
   else {
       console.error('Form submission failed.');
@@ -124,8 +111,6 @@
   }
 });
   </script>
-     
       <script src="js/ticket_details.js"></script>
-
 </body>
 </html>

@@ -13,7 +13,6 @@ body{
     justify-content: center;
     align-items: center;
   }
-  
   .ticket-content{
     height:300px;
     width:500px;
@@ -29,37 +28,28 @@ body{
     padding: 30px 30px;
     box-shadow: 1px 0px 9px 3px rgba(1, 1, 1, 0.235);
   }
-
   .ticket-content h2{
     text-align: center;
   }
-  
-  
   .details{
     display: flex;
     justify-content: center;
     padding-left: 60px;
-
   }
-  
   .details span{
     font-family: cursive;
   }
-  
   .details p{
     text-decoration: underline;
     font-family: cursive;
   }
-  
   .first{
     width: 50%;
     text-align: start;
   }
-  
   .second{
     width: 50%;
   }
-  
   .buttons-2{
     display: flex;
     justify-content: space-around;
@@ -67,7 +57,6 @@ body{
     font-size: 17px;
     padding: 10px 0px;
   }
-  
   .go-back, .confirm{
     background-color: rgb(234, 208, 9) ;
     padding: 6px 10px;
@@ -75,21 +64,17 @@ body{
     color: #000000;
     font-weight: 700;
     border: none;
-    
   }
-  
   .go-back:hover{
     background-color: #6CCACB;
     transition: 0.25s;
     cursor: pointer;
   }
-  
   .confirm:hover{
     background-color: #6CCACB;
     transition: 0.25s;
     cursor: pointer;
   }
-
   .warning{
     display: flex;
     justify-content: center;
@@ -98,12 +83,10 @@ body{
     gap: 7px;
     font-size: 14px;
   }
-
   .warning img{
     height: 17px;
     width: 17px;
   }
-
   @media(max-width : 800px){
     .ticket-content{
       height:400px;
@@ -120,13 +103,11 @@ body{
       padding: 30px 30px;
       box-shadow: 1px 0px 9px 3px rgba(1, 1, 1, 0.235);
     }
-
     .details{
       display: flex;
       justify-content: center;
       padding-left: 20px;
     }
-
     .warning{
       display: flex;
       justify-content: center;
@@ -136,7 +117,6 @@ body{
       font-size: 14px;
       padding: 20px 60px;
     }
-
   }
   .back{
     position: absolute;
@@ -148,7 +128,6 @@ body{
     top:620px;
     left:700px;
   }
-
   .fticket{
     position: absolute;
     top: 200px; 
@@ -159,14 +138,12 @@ body{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
   }
-
   .fromm{
     position: absolute;
     top: 170px;
     left: 40px;
     font-size: 15px;
     font-weight: 500;
-    
   }
   .fromm1{
     position: absolute;
@@ -174,7 +151,6 @@ body{
     left:170px;
     font-size: 15px;
     font-weight: 500;
-    
   }
   .to{
     position: absolute;
@@ -220,7 +196,6 @@ body{
     font-size: 15px;
     font-weight: 500;
   }
-
   .passengers{
     position: absolute;
     top: 270px;
@@ -228,8 +203,6 @@ body{
     font-size: 15px;
     font-weight: 500;
   }
-
-  
   .passengers1{
     position: absolute;
     top: 270px;
@@ -243,7 +216,6 @@ body{
     left: 40px;
     font-size: 15px;
     font-weight: 500;
-
   }
   .qrcode{
     position: absolute;

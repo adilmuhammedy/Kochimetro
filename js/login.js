@@ -10,10 +10,8 @@ const firebaseConfig = {
     appId: "1:443513878126:web:af44ba5a20e97a0654587f",
     measurementId: "G-PF5GKDP950"
   };
-
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-
   //email login
   document.getElementById('login').addEventListener('click',(e)=>{
     e.preventDefault()
@@ -21,7 +19,6 @@ const firebaseConfig = {
     var password=document.getElementById('password').value;
     console.log(email);
     console.log(password);
-
     firebase.auth().signInWithEmailAndPassword(email,password)
     .then((userCredentials)=>{
       var user=userCredentials.user;
@@ -32,9 +29,7 @@ const firebaseConfig = {
     .catch((error)=>{
       var errorMessage=error.message;
       alert(errorMessage);
-
     })
-  
   firebase.auth().onAuthStateChanged(function(user){
     if(user){
       var email=user.email;
@@ -43,15 +38,10 @@ const firebaseConfig = {
       //users.appendChild(text);
       console.log(user);
     }else{
-
     }
   })
 })
-
-
-// google auth
 const provider = new firebase.auth.GoogleAuthProvider();
-
 document.getElementById('googlesign').addEventListener('click',(e)=>{
   e.preventDefault();
   const auth = firebase.auth();
