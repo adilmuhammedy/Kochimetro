@@ -1,3 +1,44 @@
+<!-- Php code for notification  -->
+<?php
+      include 'php/config.php';
+
+      // Function to fetch data from the table
+      function fetchDataFromTable($conn) {
+        $sql = "SELECT * FROM notification";
+        $result = $conn->query($sql);
+        $data = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        return $data;
+      }
+
+      // Fetch initial data
+      $data = fetchDataFromTable($conn);
+
+      // Periodically fetch and update the data
+      function updateData() {
+        global $conn, $data;
+        $data = fetchDataFromTable($conn);
+      }
+
+      // Set the interval for updating the data (in seconds)
+      $updateInterval = 60; // Update every minute
+
+      // Check if an update is needed
+      $lastUpdateTime = isset($_SESSION['lastUpdateTime']) ? $_SESSION['lastUpdateTime'] : 0;
+      $currentTimestamp = time();
+
+      if ($currentTimestamp - $lastUpdateTime > $updateInterval) {
+        updateData();
+        $_SESSION['lastUpdateTime'] = $currentTimestamp;
+      }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -331,48 +372,17 @@
                   </tr>
                 </thead>
                 <tbody>
+
+                <?php for ($i = count($data) - 1; $i >= 0; $i--) { ?>
+
                   <tr>
                     <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Notification message 1</td>
+                    <td class="message-cell"><?php echo $data[$i]['message']; ?></td>
                   </tr>
-                  <!-- <hr class="botm"> -->
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem atque itaque! Impedit id sapiente saepe beatae ad reiciendis totam dolorem voluptatum, suscipit inventore perferendis ex, a, distinctio laboriosam atque.</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem atque itaque! Impedit id sapiente saepe beatae ad reiciendis totam dolorem voluptatum, suscipit inventore perferendis ex, a, distinctio laboriosam atque.</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem atque itaque! Impedit id sapiente saepe beatae ad reiciendis totam dolorem voluptatum, suscipit inventore perferendis ex, a, distinctio laboriosam atque.</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem atque itaque! Impedit id sapiente saepe beatae ad reiciendis totam dolorem voluptatum, suscipit inventore perferendis ex, a, distinctio laboriosam atque.</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quidem atque itaque! Impedit id sapiente saepe beatae ad reiciendis totam dolorem voluptatum, suscipit inventore perferendis ex, a, distinctio laboriosam atque.</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Notification message 2</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Notification message 3</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Notification message 4</td>
-                  </tr>
-                  <tr>
-                    <td class="notification-cell"><i class="fas fa-bell"></i></td>
-                    <td class="message-cell">Notification message 5</td>
-                  </tr>
-                </tbody>
+
+                <?php } ?>
+               
+                </tbody> 
               </table>
             </div>
             
