@@ -3,7 +3,9 @@ const { createCanvas, registerFont } = require('canvas');
 const QRCode = require('qrcode');
 const path = require('path');
 const cors = require('cors');
+const { MongoClient } = require('mongodb');
 const app = express();
+
 app.use(express.json());
 app.use(express.static(path.join('Projects\Kochi Metro\code', 'code')));
 app.use(cors());
@@ -15,6 +17,12 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
+const url = "mongodb://localhost:27017";
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+};
 
 
 
@@ -34,6 +42,27 @@ app.post('/submit-form',cors(), async (req, res) => {
   console.log("passengers: " + passengers);
   // Perform any necessary backend processing or calculations
   // ...
+  try {
+    // Connect to the MongoDB server
+    const client = await MongoClient.connect(url, options);
+    console.log('Connected to MongoDB server');
+
+    // Select the database and collection
+    const collection = client.db('watermetro').collection('ticketfare');
+
+    // Create a query object with the "from" and "to" values
+    const query = { from: from, to: to };
+
+    // Find the document that matches the query in the collection
+    const foundDocument = await collection.findOne(query);
+
+    // Retrieve the fare value from the document
+    if (foundDocument) {
+      let fare = foundDocument.fare;
+    }
+  } catch (error) { 
+    console.error(error);
+  }
 
   const response = {
     ticketId: generateTicketId(),

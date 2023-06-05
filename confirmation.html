@@ -67,11 +67,13 @@
       const timeSlot = localStorage.getItem("timeSlot");
       const ticketType = localStorage.getItem("ticketType");
       const passengers = localStorage.getItem("passengers");
+      const ffare=fare;
       document.getElementById("p1").textContent = from;
       document.getElementById("p2").textContent = to;
       document.getElementById("p3").textContent = timeSlot;
       document.getElementById("p4").textContent = ticketType;
       document.getElementById("p5").textContent = passengers;
+      document.getElementById("p6").textContent = fare;
         // Retrieve the form details from the query parameters
     // Retrieve the form values from local storage
      //set onclick fn to confirm buto, try that
