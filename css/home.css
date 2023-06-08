@@ -1,77 +1,44 @@
 body{
   background: linear-gradient(180deg, #6CCACB 0%, #1B4949 100%);
+  margin:0;
+  padding: 0;
 }
+
 .full-navbar{
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100px;
+  height: 110px;
   box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.269);
+  padding: 0;
 }
 
 .top{
-  position: absolute;
-  top:-20px;
   height: 30px;
-  position: absolute;
   width: 100%;
-  background-color: #14B1B2;
+  height: 30px;
 }
-.bottom{
-  position: absolute;
-  top:30px;
+
+.top .top-in{
+  margin: 0;
+  padding: 0 23px;
   width: 100%;
-  height: 70px;
-  background-color: white;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #14B1B2;
+
 }
 
 .pattern{
-  position: absolute;
-  left:-30px;
-  top:-10px;
   height: 30px;
-}
-.col-5pattern{
-  position: absolute;
-  left:-500px;
-  top:-10px;
-  height: 30px; 
-
+  padding-left: 45px;
 }
 
-.full-navbar .login .li1{
-  position: absolute;
-  left:650px;
-  top:-15px;
-  width:100px;
+.full-navbar .login {
+  min-width:350px;
   text-decoration: none;
   font-size:17px;
-  color: #060606d4;
-}
-.full-navbar .login .li2{
-  position: absolute;
-  left:750px;
-  top:-15px;
-  width:100px;
-  text-decoration: none;
-  font-size:17px;
-  color: #000000d4;
-}
-.full-navbar .login .bar{
-  position: absolute;
-  left:740px;
-  top:-15px;
-  width:100px;
-  text-decoration: none;
-  font-size:17px;
-  color: #000000d4;
-}
-.full-navbar .login li a:hover{
-  color: #ffffffd4;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.full-navbar .login{
   display: flex;
   gap: 15px;
   padding: 2px 0px 2px 95px;
@@ -79,31 +46,43 @@ body{
   list-style: none;
 }
 
-.top .container .row{
-  position: absolute;
-  top:20px;
-  display: flex;
-  justify-content: space-between;
+.full-navbar .login li a{
+  color: #000000d4;
+  cursor: pointer;
 }
 
-.full-navbar .bottom .container{
-  height: 70px;
-  padding-top: 10px;
+.full-navbar .login li a:hover{
+  color: #ffffffd4;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.bottom .container .row{
-  position: absolute;
-  top:5px;
-  left:10px;
+.full-navbar .bottom{
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom .row{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 50px;
 }
 
 .full-navbar .bottom .bottom-left{
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 30px;
+}
 
+.full-navbar .bottom .bottom-left p{
+  margin: 0;;
 }
 
 .full-navbar .bottom .logo{
@@ -111,28 +90,23 @@ body{
 }
 
 .full-navbar .bottom .metro-name{
-  position:absolute;
   left:150px;
   width:400px;
   font-size: 25px;
-  top:10px;
   font-weight: 700;
   color: #495b5b;
 }
 
 .full-navbar .bottom .bottom-right{
-  position:absolute;
-  left:50px;
   width:400px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   gap: 40px;
 }
 
 .full-navbar .bottom .bottom-right ul{
-  position: absolute;
-  left:500px;
+
   display: flex;
   list-style: none;
   margin: 0;
@@ -153,7 +127,6 @@ body{
 }
 
 .full-navbar .bottom .bottom-right .button1{
-  position: absolute;
   left:1100px;
   background-color: #14B1B2;
   padding: 5px 20px 5px 20px;
@@ -165,7 +138,6 @@ body{
   transition: 0.3s;
 }
 .full-navbar .bottom .bottom-right .button2{
-  position: absolute;
   left:1200px;
   width:120px;
   background-color: #14B1B2;
@@ -351,6 +323,8 @@ h2{
 }
 
 .container-fluid{
+  position: relative;
+  top: 110px;
   height: 45.625rem !important;
 }
 
