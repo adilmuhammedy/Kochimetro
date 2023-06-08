@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    
+}
+
+.tour-main{
+    background-color: #4fb2b2a8;
+    padding-bottom: 90px;
+}
+
+.tour-main .head-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 0px 40px 0px;
+}
+
+.tour-main .head-desc h1{
+    font-size: 80px;
+    font-weight: 800;
+    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Lato', sans-serif;
+    color: #0a0a0a77;
+    text-align: center;
+}
+
+.tour-main .head-desc p{
+    color: #ffffff;
+    font-size: large;
+    
+}
+
+.tour-main .search-bar{
+    font-size: medium;
+}
+
+.card{
+    margin-top:15px;
+}
+
+.card-body{
+    background-image: linear-gradient( #ffffff, #14B1B2); 
+    border-radius: 5px;
+    height: 375px;
+    display: flex;  
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.img-div{
+    height: 210px;
+}
+
+.data-div{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.data-div h6{
+    margin-bottom:3px;
+    text-align: center;
+}
+
+.data-div .data{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-img-top{
+    height: 210px;
+}
+
+.col{
+    padding-left: 20px;
+}
+
