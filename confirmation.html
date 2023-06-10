@@ -56,7 +56,7 @@
                 <span class="fare">Fare :</span> 
               </div>
               <div class="second">
-                <span id="p6"> </span>
+                <p id="fareValue" class="fare"></p>
               </div>
             </div>
             <div class="buttons-2">
@@ -75,51 +75,22 @@
       const timeSlot = localStorage.getItem("timeSlot");
       const ticketType = localStorage.getItem("ticketType");
       const passengers = localStorage.getItem("passengers");
-      const ffare=fare;
+      const urlParams = new URLSearchParams(window.location.search);
+  const fare = urlParams.get('fare');
+
+  // Set the fare value in the HTML element
+  const fareElement = document.getElementById('fareValue');
+  fareElement.textContent = fare;
       document.getElementById("p1").textContent = from;
       document.getElementById("p2").textContent = to;
       document.getElementById("p3").textContent = timeSlot;
       document.getElementById("p4").textContent = ticketType;
       document.getElementById("p5").textContent = passengers;
-      document.getElementById("p6").textContent = fare;
+      document.getElementById("fareValue").textContent = fare;
         // Retrieve the form details from the query parameters
     // Retrieve the form values from local storage
      //set onclick fn to confirm buto, try that
-     document.getElementById('confirm').addEventListener('click', async (event) => {
-  event.preventDefault();
-  const requestBody = {
-    from,
-    to,
-    timeSlot,
-    ticketType,
-    passengers,
-  };
-  try {
-    // Send a POST request to the backend
-    const response = await fetch('http://localhost:8080/submit-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody),
-    });
-    // Handle the response
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log("responseData and connection successful", responseData);
-      // Process the response data
-      // ...
-      // Redirect to a new page or display the response data
-      // ...
-      window.location.href = "ticket.html"; 
-}
-  else {
-      console.error('Form submission failed.');
-    }
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-});
+     
   </script>
       <script src="js/ticket_details.js"></script>
 </body>

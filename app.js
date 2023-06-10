@@ -11,7 +11,7 @@ app.use(express.static(path.join('Projects\Kochi Metro\code', 'code')));
 app.use(cors());
 app.options('/submit-form', cors()); // enable pre-flight request for POST request
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  //res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -35,39 +35,46 @@ function generateTicketId() {
 
 app.post('/submit-form',cors(), async (req, res) => {
   const { from, to, timeSlot, ticketType, passengers } = req.body;
-  console.log("from: " + from);
-  console.log("to: " + to);
-  console.log("timeSlot: " + timeSlot);
-  console.log("ticketType: " + ticketType);
-  console.log("passengers: " + passengers);
+  //console.log("from: " + from);
+  //console.log("to: " + to);
+  //console.log("timeSlot: " + timeSlot);
+  //console.log("ticketType: " + ticketType);
+  //console.log("passengers: " + passengers);
   // Perform any necessary backend processing or calculations
   // ...
+  let fare=0;
+  
   try {
     // Connect to the MongoDB server
     const client = await MongoClient.connect(url, options);
     console.log('Connected to MongoDB server');
 
     // Select the database and collection
-    const collection = client.db('watermetro').collection('ticketfare');
+    const collection = client.db('Kochimetro').collection('ticket');
 
     // Create a query object with the "from" and "to" values
     const query = { from: from, to: to };
 
     // Find the document that matches the query in the collection
     const foundDocument = await collection.findOne(query);
-
+   
     // Retrieve the fare value from the document
     if (foundDocument) {
-      let fare = foundDocument.fare;
+      fare = foundDocument.fare;
+      console.log('Fare:', fare);
     }
   } catch (error) { 
     console.error(error);
   }
 
+  const url1 = `confirmation.html?fare=${fare}`;
   const response = {
     ticketId: generateTicketId(),
     confirmationMessage: 'Your ticket has been booked successfully!',
+    fare: fare,
+    redirectUrl: url1
   };
+
 
   const qrCodeText = `Ticket ID: ${response.ticketId}`;
   const qrCodeImagePath = 'qrcode.png';
