@@ -9,17 +9,24 @@ document.getElementById("fareCalculator").style.display = "none";
 }
 function closeFareDetails() {
   document.getElementById("fareDetails").style.display = "none";
+  document.getElementById("fareForm").reset();
   }
 
 
 function calculator(){
  
 let fare=0;
-a=document.getElementById('from').value;
-b=document.getElementById('to').value;
+a=document.getElementById('cfrom').value;
+b=document.getElementById('cto').value;
 num=document.getElementById('tickets').value;
 slot=document.getElementById('time-slot').value;
 type=document.getElementById('ticket-type').value;
+console.log(from)
+console.log(to) 
+console.log(num)
+console.log(slot)
+console.log(type)
+
 if(type=="two-way"){
   num=num*2;
 }
@@ -69,7 +76,8 @@ else if(c==17||c==-17||c==18||c==-18||c==19||c==-19||c==20||c==-20||c==21||c==-2
 document.getElementById("fareDetails").style.display = "block";
 document.getElementById("details").innerHTML = "Your fare is "+fare+" ₹"  ;
 document.getElementById("fareCalculator").style.display = "none";
-  
+  //reset the form
+
 }
 }
 
