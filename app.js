@@ -67,12 +67,12 @@ app.post('/submit-form',cors(), async (req, res) => {
     console.error(error);
   }
 
-  const url1 = `confirmation.html?fare=${fare}`;
+  const redirectUrl = `confirmation.html?fare=${fare}`;
   const response = {
     ticketId: generateTicketId(),
     confirmationMessage: 'Your ticket has been booked successfully!',
     fare: fare,
-    redirectUrl: url1
+    redirectUrl: redirectUrl
   };
 
 

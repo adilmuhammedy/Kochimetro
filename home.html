@@ -247,7 +247,12 @@
                   if (response.ok) {
                 const responseData = await response.json();
                 console.log("responseData and connection successful", responseData);
-                window.location.href = "confirmation.html";          
+                const redirectUrl = responseData.redirectUrl;
+                window.location.href = redirectUrl; // Redirect to the confirmation pagewindow.location.href = "confirmation.html";  
+
+
+                // Redirect to the ticket.html page with the values
+                window.location.href = url;        
                 }
                 else {
                     console.error('Form submission failed.');

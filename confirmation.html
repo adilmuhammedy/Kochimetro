@@ -56,7 +56,7 @@
                 <span class="fare">Fare :</span> 
               </div>
               <div class="second">
-                <p id="fareValue" class="fare"></p>
+                <p id="fareValue" class="fareval"></p>
               </div>
             </div>
             <div class="buttons-2">
@@ -76,21 +76,48 @@
       const ticketType = localStorage.getItem("ticketType");
       const passengers = localStorage.getItem("passengers");
       const urlParams = new URLSearchParams(window.location.search);
-  const fare = urlParams.get('fare');
-
-  // Set the fare value in the HTML element
-  const fareElement = document.getElementById('fareValue');
+      let fare = urlParams.get('fare');
+      const fareElement = document.getElementById('fareValue');
   fareElement.textContent = fare;
+
+
+  if(passengers > 1) {
+    fare = fare * passengers;
+  }
+  if(ticketType == "Two-way") {
+    fare = fare * 2;
+  }
+  if(timeSlot == "6:00-8:00") {
+    fare = fare * 0.5;
+  }
+  if(timeSlot == "21:00-23:00") {
+    fare = fare * 0.5;
+  }
+ 
       document.getElementById("p1").textContent = from;
       document.getElementById("p2").textContent = to;
       document.getElementById("p3").textContent = timeSlot;
       document.getElementById("p4").textContent = ticketType;
       document.getElementById("p5").textContent = passengers;
       document.getElementById("fareValue").textContent = fare;
+      localStorage.setItem("ffare", fare);
         // Retrieve the form details from the query parameters
     // Retrieve the form values from local storage
      //set onclick fn to confirm buto, try that
-     
+     const confirmButton = document.getElementById('confirm');
+
+  confirmButton.addEventListener('click', () => {
+  // Get the values needed to pass to the next page
+ 
+
+  // Create the URL with the values as query parameters
+  const url = `ticket.html?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&timeSlot=${encodeURIComponent(timeSlot)}&ticketType=${encodeURIComponent(ticketType)}&passengers=${encodeURIComponent(passengers)}&fare=${encodeURIComponent(fare)}`;
+
+
+  // Redirect to the ticket.html page with the values
+  window.location.href = url;
+});
+
   </script>
       <script src="js/ticket_details.js"></script>
 </body>

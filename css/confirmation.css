@@ -224,6 +224,23 @@ body{
     width: 150px;
     height: 150px;
   }
+  .fareval{
+    position: absolute;
+    top: 236px;
+    left: 310px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none !important;
+  }
+  .fareval1{
+    position: absolute;
+    top: 296px;
+    left: 170px;
+    width:30px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none !important;
+  }
  
   
   

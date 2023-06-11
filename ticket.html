@@ -22,6 +22,7 @@
       <h4 class="passengers">Passengers: </h4>
       <h4 id="p5" class="passengers1"></h4>
       <h4 class="total">Fare:</h4>
+      <h4 id="fareValue" class="fareval1"></h4>
     </div>
   </div>
   <button type="button" id="go-back" class="back" onclick="goback()">Go Back</button>
@@ -34,11 +35,14 @@
         const timeSlot = localStorage.getItem("timeSlot");
         const ticketType = localStorage.getItem("ticketType");
         const passengers = localStorage.getItem("passengers");
+        const fare = localStorage.getItem("ffare");
         document.getElementById("p1").textContent = from;
         document.getElementById("p2").textContent = to;
         document.getElementById("p3").textContent = timeSlot;
         document.getElementById("p4").textContent = ticketType;
         document.getElementById("p5").textContent = passengers;
+        document.getElementById("fareValue").textContent = fare;
+        
     // Call the necessary functions
     function goback(){
     window.location = "home.html";
