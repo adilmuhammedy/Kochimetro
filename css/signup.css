@@ -9,7 +9,7 @@
     height: 100vh;
     background-position:center;
     background-size:cover;
-    background-color:   rgb(26, 156, 156);
+    background-color:   rgba(79, 106, 122, 0.658);
 }
 .form-box{
   width: 480px;
@@ -70,7 +70,7 @@ button {
 }
 .sign {
   color: #000302;
-  background-color: rgb(36, 197, 133);
+  background-color: #14B1B2;
 }
 button:hover {
     color: rgb(255, 255, 255);
