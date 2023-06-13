@@ -1,5 +1,4 @@
 
-
 const firebaseConfig = {
     apiKey: "AIzaSyDjBgmzmlwmso2pJ6IUSaROuAoRKLmynpw",
     authDomain: "metro-c2e76.firebaseapp.com",
@@ -13,48 +12,59 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   //email login
-  document.getElementById('login').addEventListener('click',(e)=>{
-    e.preventDefault()
-    var email=document.getElementById('email').value;
-    var password=document.getElementById('password').value;
+  
+  
+  document.getElementById('login').addEventListener('click', (e) => {
+    e.preventDefault();
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
     console.log(email);
     console.log(password);
-    firebase.auth().signInWithEmailAndPassword(email,password)
-    .then((userCredentials)=>{
-      var user=userCredentials.user;
-      alert(user.email);
-      console.log(user.email);
-      alert("login successfull")
-    })
-    .catch((error)=>{
-      var errorMessage=error.message;
-      alert(errorMessage);
-    })
-  firebase.auth().onAuthStateChanged(function(user){
-    if(user){
-      var email=user.email;
-      var users=document.getElementById('user');
-      var text=document.createTextNode(email);
+  
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        var user = userCredentials.user;
+        alert(user.email);
+        console.log(user.email);
+        alert("Login successful");
+      })
+      .catch((error) => {
+        var errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
+  
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var email = user.email;
+      var users = document.getElementById('user');
+      var text = document.createTextNode(email);
+      window.location.href = "./home.html";
       //users.appendChild(text);
       console.log(user);
-    }else{
+    } else {
+      // User is not signed in
     }
-  })
-})
-const provider = new firebase.auth.GoogleAuthProvider();
-document.getElementById('googlesign').addEventListener('click',(e)=>{
-  e.preventDefault();
-  const auth = firebase.auth();
-  auth.signInWithPopup(provider)
-    .then((result) => {
-      // Handle successful authenticatison
-      const user = result.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      // Handle authentication error
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-    });
-})
+  });
+  
+  const provider = new firebase.auth.GoogleAuthProvider();
+  
+  document.getElementById('googlesign').addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        // Handle successful authentication
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        // Handle authentication error
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  });
+  // ...
+
+
+// ...
