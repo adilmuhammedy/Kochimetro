@@ -2,7 +2,7 @@ function search() {
   let input = document.querySelector('.search-txt');
   
   let cardsCont = document.querySelectorAll('.cardcontainer');
-
+//helooo
   cardsCont.forEach((card) => {
       let cardInner = card.querySelector('.card');
       if (cardInner.querySelector('.card-title').innerText.toLowerCase().includes(input.value.toLowerCase())) {
