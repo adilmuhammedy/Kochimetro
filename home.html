@@ -217,17 +217,23 @@
                     <input id="nop"  class="i" type="number" id="nop" />
                 </div>
                 <br>
+                
                 <div class="buttons">
                     <button type="reset" id="my-reset-button" onclick="resetSelect2()">Reset</button>
                     <button type="submit" class="submit" id="submit">Show Route & Fare</button>
                 </div>
                 <br>
               </form>
+
+         
+
               <script>
                 // Submit form data to the backend
              
                 document.getElementById('formm').addEventListener('submit', async (event) => {
                   event.preventDefault();
+
+                
                   
                   // Get form data
                   const form = event.target;
@@ -351,14 +357,11 @@
                   </button>
                 </div>
                 <div class="col-md-6">
-                  <a href="lost-base.html">
-                  <button class="btn-rect">
-        
+                  <button class="btn-rect" onclick="window.location='lost-base.html'">
                     <div class="btn-inner">
                       <img src="/images/html_pic.jpg">
                       <div class="btn-divider"></div>
                       <div class="btn-name">Lost and Found</div>
-
                     </div>
                   </button></a>
                 </div>
@@ -416,7 +419,7 @@
                     <th colspan="2">News and Alerts</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-body">
                   <tr>
                     <td class="notification-cell"><i class="fas fa-bell"></i></td>
                     <td class="message-cell">Notification message 1</td>

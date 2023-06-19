@@ -12,8 +12,16 @@ body{
   height: 110px;
   box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.269);
   padding: 0;
+  z-index: 9999;
 }
-
+.razpay{
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.269);
+  padding: 0;
+  background-color: #14B1B2;
+}
 .top{
   height: 30px;
   width: 100%;
@@ -180,7 +188,7 @@ body{
 }
 
 form .form-group {
-    margin: 26px 0;
+    margin: 5px 0;
     position: relative;
     width: 100%;
   }
@@ -209,6 +217,7 @@ form .form-group {
   
   .buttons {
     text-align: center;
+    margin-top: 20px;
   }
   
   form .buttons button {
@@ -292,7 +301,8 @@ span {
 } */
 
 .form-container{
-  transform: translateY(25%);
+  /* transform: translateY(25%); */
+  margin-top: 10%;
   width:80%;
   margin-right: 10%;
   margin-left: 10%;
@@ -374,7 +384,7 @@ h2{
 
 /*
  Station Search  */
-.search-container {
+ .search-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -384,11 +394,10 @@ h2{
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   width: 400px;
-  height:100px;
   margin: 0 auto;
 
   background: rgba(134, 163, 164, 0.63);
-  margin-top: 70px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -432,8 +441,8 @@ color: #000000;
 .search-icon {
   position: absolute;
   top: 50%;
-  right: 10px;
-  font-size: 15px;
+  right: 40px;
+  font-size: 13px;
   color: #f0eeee;
   background-color: #011208;
   cursor: pointer;
@@ -501,7 +510,7 @@ color: #000000;
 }
 
 .custom-row {
-  height: 1020px; 
+  height: 700px; 
 }
 
 .custom-col {
@@ -587,7 +596,7 @@ color: #000000;
   border: 1px solid #000000; /* Set the border style */
   border-radius: 15px;
 
-  overflow-y: scroll; /* Enable vertical scrolling */
+  /* overflow-y: scroll; Enable vertical scrolling */
   /*background-color: rgba(20, 177, 178, 0.51); /* Set the background color */
   background: #86A3A4;
 
@@ -608,29 +617,61 @@ color: #000000;
   /* justify-content: center; */
   /* align-items: center; */
 
-  scrollbar-width: thin; /* Set the width of the scrollbar to thin */
-  scrollbar-color: rgb(72, 72, 72) transparent; /* Set the color of the scrollbar */
+  /* scrollbar-width: thin; Set the width of the scrollbar to thin */
+  /* scrollbar-color: rgb(72, 72, 72) transparent; Set the color of the scrollbar */
 }
 
-.table-wrapper::-webkit-scrollbar {
-  width: 6px; /* Set the width of the scrollbar */
-  height: 6px; /* Set the height of the scrollbar */
+/* .table-wrapper::-webkit-scrollbar {
+  width: 6px; 
+  height: 6px; 
   margin-left: 5px;
 }
 
 .table-wrapper::-webkit-scrollbar-thumb {
-  background-color: 86A3A4; /* Set the color of the scrollbar thumb */
-  border-radius: 6px; /* Add rounded corners to the scrollbar thumb */
+  background-color: yellow; 
+  border-radius: 1000px; 
 }
 
 .table-wrapper::-webkit-scrollbar-track {
-  background-color: transparent; /* Set the color of the scrollbar track */
-  border-radius: 6px; /* Add rounded corners to the scrollbar track */
+  background-color: transparent; 
+  border-radius: 6px; 
 }
 
 .table-wrapper::-webkit-scrollbar-corner {
-  background-color: transparent; /* Set the color of the scrollbar corner */
-  border-radius: 6px; /* Add rounded corners to the scrollbar corner */
+  background-color: transparent; 
+  border-radius: 6px; 
+} */
+
+.table-body::-webkit-scrollbar {
+  width: 7px; /* Adjust the width as needed */
+  border-radius: 10px;
+}
+
+.table-body::-webkit-scrollbar-track {
+  /* background: #f1f1f1; Set the track color */
+  background: transparent;
+}
+
+.table-body::-webkit-scrollbar-thumb {
+  background: #888; /* Set the thumb color */
+}
+
+.table-body::-webkit-scrollbar-corner {
+  background-color: transparent; 
+  border-radius: 10px; 
+}
+
+.table-body::-webkit-scrollbar-thumb {
+  background-color: #425050; 
+  border-radius: 10px; 
+}
+
+/* Apply the scrollbar to the table body */
+.table-body {
+  max-height: 400px; /* Set a maximum height to enable scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* Set the width of the scrollbar */
+  display: block;
 }
 
 .table-wrapper thead th {
@@ -638,6 +679,7 @@ color: #000000;
   position: sticky; /* Stick the table header to the top of the table wrapper */
   top: 0; /* Set the top position to 0 */
 }
+
 
 /* .tab-border {
   background: rgba(20, 174, 175, 0.51);
@@ -691,9 +733,9 @@ td {
   text-align: left !important;
 }
 
-tr:hover {
+/* tr:hover {
   background: #ededfa;
-}
+} */
 
 /* 2nd design matx of btns  */
 
@@ -702,21 +744,31 @@ tr:hover {
   /* align-items: center; */
   /* justify-content: center; */
   height: 65px;
-  width: 240px;
+  width: 230px;
   padding: 0;
   border: none;
   background-color: transparent;
   border-radius: 10px;
-  box-shadow: 0 0 5px #989797;
+  /* box-shadow: 0 0 5px #989797; */
+  /* box-shadow: 0 0 5px #0d7070; */
 
-  margin-bottom: 10px;
-  background: linear-gradient(180deg, #14B0B1 0%, rgba(20, 176, 177, 0) 100%);
+  margin-bottom: 15px;
+  /* background: linear-gradient(180deg, #14B0B1 0%, rgba(20, 176, 177, 0) 100%); */
+  background: #3599a2db;
+  /* background: whitesmoke; */
+  color:black;
   font-family: cursive;
+
+  text-decoration: none;
+
+  transition: transform 0.3s ease; 
 }
 
 .btn-rect:hover{
-  color: whitesmoke;
+  /* color: whitesmoke; */
+  color: black;
   background: linear-gradient(180deg, #0d7070 0%, rgba(10, 87, 87, 0) 100%);
+  transform: scale(1.05);
 }
 
 .btn-rect .btn-inner {
@@ -746,6 +798,7 @@ tr:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 .btn-rect img {
   height: 60%;
@@ -846,6 +899,7 @@ tr:hover {
   font-size:13px;
   margin-bottom:0;
 }
+
 .background {
 	background-image: url(background.jpg);
 	position: fixed;
@@ -857,7 +911,7 @@ tr:hover {
 	z-index: -1;
 }
 
-.container {
+/* .container {
 	background-color: #fff;
 	padding: 20px;
 	margin: 50px auto;
@@ -866,7 +920,7 @@ tr:hover {
 
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
+} */
 
 h1 {
 	text-align: center;

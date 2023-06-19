@@ -1,8 +1,7 @@
 function search() {
-  let input = document.querySelector('.search-txt');
+  let input = document.querySelector('.search-bar');
   
   let cardsCont = document.querySelectorAll('.cardcontainer');
-
   cardsCont.forEach((card) => {
       let cardInner = card.querySelector('.card');
       if (cardInner.querySelector('.card-title').innerText.toLowerCase().includes(input.value.toLowerCase())) {
