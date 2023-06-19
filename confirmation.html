@@ -69,7 +69,12 @@
             <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et repellat autem aperiam accusantium, eius nam!</span>
         </div>
       </div>
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       <script>
+
+
       const from = localStorage.getItem("from");
       const to = localStorage.getItem("to");
       const timeSlot = localStorage.getItem("timeSlot");
@@ -77,48 +82,68 @@
       const passengers = localStorage.getItem("passengers");
       const urlParams = new URLSearchParams(window.location.search);
       let fare = urlParams.get('fare');
+      const order_id = urlParams.get('order_id');
       const fareElement = document.getElementById('fareValue');
   fareElement.textContent = fare;
 
 
-  if(passengers > 1) {
-    fare = fare * passengers;
-  }
-  if(ticketType == "Two-way") {
-    fare = fare * 2;
-  }
-  if(timeSlot == "6:00-8:00") {
-    fare = fare * 0.5;
-  }
-  if(timeSlot == "21:00-23:00") {
-    fare = fare * 0.5;
-  }
+
  
       document.getElementById("p1").textContent = from;
       document.getElementById("p2").textContent = to;
       document.getElementById("p3").textContent = timeSlot;
-      document.getElementById("p4").textContent = ticketType;
+      document.getElementById("p4").textContent = ticketType; 
       document.getElementById("p5").textContent = passengers;
       document.getElementById("fareValue").textContent = fare;
       localStorage.setItem("ffare", fare);
         // Retrieve the form details from the query parameters
     // Retrieve the form values from local storage
      //set onclick fn to confirm buto, try that
+     
+     
      const confirmButton = document.getElementById('confirm');
-
   confirmButton.addEventListener('click', () => {
   // Get the values needed to pass to the next page
- 
 
   // Create the URL with the values as query parameters
   const url = `ticket.html?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&timeSlot=${encodeURIComponent(timeSlot)}&ticketType=${encodeURIComponent(ticketType)}&passengers=${encodeURIComponent(passengers)}&fare=${encodeURIComponent(fare)}`;
-
-
+  pay(url);
   // Redirect to the ticket.html page with the values
-  window.location.href = url;
 });
 
+
   </script>
+  <script>
+    function pay(url){
+
+      const options = {
+        "key": "rzp_test_KoHAhlJPYY3SRe", // Enter the Key ID generated from the Dashboard
+        "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Kochi Metro",
+        "description": "Test Transaction",
+        "image": "http://localhost:8000/static/img/logo.png",
+        "order_id": `${order_id}`, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "callback_url":"http://127.0.0.1:8080/api/verify/payment/",
+        "prefill": {
+            "name": "{{ order.user.first_name }}",
+            "email": "{{ order.user.email }}",
+            "contact": "+919072124291"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    const rzp1 = new Razorpay(options);
+
+        rzp1.open();
+    
+    }
+    
+</script>
       <script src="js/ticket_details.js"></script>
 </body>
 </html>

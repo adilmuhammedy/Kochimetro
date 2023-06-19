@@ -5,13 +5,16 @@
     "express": "^4.18.2",
     "firebase": "^9.22.1",
     "mongodb": "^5.6.0",
-    "qrcode": "^1.5.3"
+    "nodemon": "^2.0.22",
+    "qrcode": "^1.5.3",
+    "razorpay": "^2.8.6"
   },
   "name": "code",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon app.js"
   },
   "author": "",
   "license": "ISC",
