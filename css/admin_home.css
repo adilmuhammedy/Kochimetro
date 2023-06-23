@@ -1,0 +1,154 @@
+body{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.admin-main{
+    display: flex;
+    flex-direction: row;
+    height: 65vh;
+    padding-top: 80px;
+
+}
+
+.side-bar{
+    display: flex;
+    flex-direction: column;
+    background-color: #86A3A4;
+    width: 40%;
+    padding: 20px 80px;
+    gap: 10px;
+}
+
+.side-bar button{
+    font-size: 17px;
+    font-weight: 500;
+    padding: 20px 50px;
+    border-radius: 10px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: rgb(80, 81, 81);
+    cursor: pointer;
+}
+
+.side-bar button:hover{
+    background-color: #4fb2b2a8;
+    color: #ffffff;
+}
+
+
+.right-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 60%;
+    padding-left: 10%;
+    height: 65vh;
+    
+}
+
+.admin-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    background-color: #4fb2b2a8;
+    border-radius: 20px;
+    height: 65vh;
+    border-color:#86A3A4 ;
+    border-style: solid;
+    border-width: 10px;
+    gap: 20px;
+}
+
+.admin-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px auto;
+}
+
+.admin-img img{
+    height: 200px;
+    width: 200px;
+    border-color: #323738;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.admin-details .details{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(62, 63, 64);
+}
+
+.admin-details .admin-head{
+    font-size: 30px;
+    font-weight: 700;
+    color: #323738;
+}
+
+
+dialog:modal{
+    padding: 30px 100px;
+    background-color: #4fb2b2;
+    border-radius: 15px;
+    border-width: 10px;
+    border-color: #637778;
+
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.495);
+}
+
+#lost-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 500px;
+    display: inline-block;
+}
+
+#lost-form input, textarea, select{
+    border-radius: 4px;
+    border: none;
+}
+
+#lost-form input, select{
+   height: 33px;
+   
+}
+
+#lost-form input,#lost-form select{
+    width: 320px;
+}
+
+#close-lost-item-modal{
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #4c5151;
+    border: none;
+    color: black;
+    font-weight: 600;
+    margin-left: 190px;
+    margin-top: 30px;
+}
+
+#close-lost-item-modal:hover{
+    background-color: #ffffff;
+}
+
+.modal-head{
+    text-align: center;
+    font-size: xx-large;
+}
+
