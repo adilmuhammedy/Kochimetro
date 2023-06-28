@@ -18,11 +18,25 @@ body{
 .side-bar{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #86A3A4;
     width: 40%;
     padding: 20px 80px;
     gap: 10px;
+    border: #323738;
+    border-width: 40px;
+    border-style: solid;
+    height: 478px;
 }
+
+.side-bar h3{
+    text-align: top;
+    font-weight: 700;
+    color: #3d3d3d;
+    margin-bottom: 30PX;
+}
+
 
 .side-bar button{
     font-size: 17px;
@@ -33,11 +47,12 @@ body{
     border-style: solid;
     border-color: rgb(80, 81, 81);
     cursor: pointer;
+    background-image: linear-gradient(to right,#14B1B2,white);
+    width: 300px;
 }
 
 .side-bar button:hover{
-    background-color: #4fb2b2a8;
-    color: #ffffff;
+    background-image: linear-gradient(to right,white,#14B1B2);
 }
 
 

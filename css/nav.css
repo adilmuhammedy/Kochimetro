@@ -1,5 +1,5 @@
 .full-navbar{
-    height: 100px;
+    height: 110px;
     box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.269);
 }
 
@@ -9,7 +9,7 @@
 }
 
 .bottom{
-    height: 70px;
+    height: 80px;
     background-color: white;
 }
 
@@ -44,7 +44,7 @@
 
 .full-navbar .bottom .container{
     height: 70px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .bottom .container .row{

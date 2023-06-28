@@ -1,0 +1,220 @@
+body{
+    margin: 0;
+}
+
+.container{
+    height: 100vh;
+    margin: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    max-height: 450px;
+    min-height: 90px;
+    min-width: 320px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+tr{
+    width: 100%;
+}
+
+th {
+    background-color: #c4c4c4;
+    border-right: black;
+    border-right-width: 1px;
+    border-right-style: solid;
+    font-size: 17px;
+}
+
+td{
+    font-size: 16px;
+    height: 40px;
+    border-right: black;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+
+.lf-heading-in{
+    text-align: center;
+    background-color: #14B1B2;
+    padding: 15px;
+    margin-top: 40px;
+    min-width: 320px;
+    font-size: 24px;
+}
+
+/* .lf-heading th{
+    text-align: center;
+    background-color: #14B1B2;
+    width: 100%;
+
+} */
+
+dialog:modal{
+    padding: 50px 100px;
+    background-color: #4fb2b2;
+    border-radius: 15px;
+    border-width: 10px;
+    border-color: #637778;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.495);
+}
+
+.item-details{
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.det-head{
+    font-size: 26px;
+    margin: 0px 0px;
+    margin-bottom: 30px;
+}
+
+#lost-item-modal input{
+    height: 25px;
+    width: 230px;
+
+}
+
+#close-lost-item-modal, #close-lost-modal{
+    padding: 7px 15px;
+    background-color: aliceblue;
+    border-radius: 13px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.669);
+    cursor: pointer;
+}
+
+#close-lost-item-modal:hover{
+    color: #14B1B2;
+    background-color: rgb(218, 253, 255);
+}
+
+#close-lost-modal:hover{
+    color: #14B1B2;
+    background-color: rgb(218, 253, 255);
+}
+
+#close-lost-modal:active{
+    font-weight: 600;
+    border: black;
+    border-width:1px;
+    border-style: solid;
+    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+}
+
+
+#close-lost-item-modal:active{
+    font-weight: 600;
+    border: black;
+    border-width:1px;
+    border-style: solid;
+    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+}
+
+
+.nav-btn{
+    gap: 2rem;
+    margin-top: 20px;
+}
+
+
+
+dialog:modal form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog:modal form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#open-lost-item-modal{
+    padding: 20px 30px;
+    border-radius: 13px;
+    background-image: linear-gradient(to right,#14B1B2,white);
+    border: none;
+    font-size: 18px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+    cursor: pointer;
+    margin: 20px 40%;
+}
+
+#open-lost-item-modal:hover{
+    background-image: linear-gradient(to right,white,#14B1B2);
+}
+
+#open-lost-item-modal:active{
+    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+}
+
+.claim, .claimed{
+    padding: 2px 20px;
+    border-radius: 10px;
+    background-color: #637778;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    color: rgb(244, 244, 244);
+    cursor: pointer;
+    margin: 5px;
+}
+
+.claim:focus{
+    color: rgb(41, 135, 41);
+    background-color: #c4c4c4;
+}
+
+.claimed:focus{
+    color: rgb(177, 1, 1);
+    background-color: #c4c4c4;
+}
+
+@media(max-width:626px){
+    dialog:modal{
+        padding: 30px 60px;
+        background-color: #4fb2b2;
+        border-radius: 15px;
+        border-width: 10px;
+        border-color: #637778;
+    }
+    
+
+}
+
+@media(max-width:500px){
+    dialog:modal{
+        padding: 20px 40px;
+    }
+}
+
+@media(max-width:380px){
+    dialog:modal{
+        padding: 20px 10px;
+    }
+}
