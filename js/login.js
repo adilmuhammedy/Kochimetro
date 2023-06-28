@@ -13,58 +13,75 @@ const firebaseConfig = {
   const auth = firebase.auth();
   //email login
   
-  
-  document.getElementById('login').addEventListener('click', (e) => {
-    e.preventDefault();
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    console.log(email);
-    console.log(password);
-  
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        var user = userCredentials.user;
-        alert(user.email);
-        console.log(user.email);
-        alert("Login successful");
-      })
-      .catch((error) => {
-        var errorMessage = error.message;
-        alert(errorMessage);
-      });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('loginbtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      console.log(email);
+      console.log(password);
+    
+      auth.signInWithEmailAndPassword(email, password)
+        .then(function(userCredentials) {
+          var user = userCredentials.user;
+          alert(user.email);
+          console.log(user.email);
+          alert("Login successful");
+        })
+        .catch(function(error) {
+          var errorMessage = error.message;
+          alert(errorMessage);
+        });
+    });
   });
+  
+  
+  var loginButton = document.getElementById("login");
+  var profileIcon = document.getElementById("profileIcon");
+  const signoutButton = document.getElementById('signout');
   
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       var email = user.email;
       var users = document.getElementById('user');
       var text = document.createTextNode(email);
-      window.location.href = "./home.html";
-      //users.appendChild(text);
+      // users.appendChild(text);
       console.log(user);
+      // Hide the login button and display the profile icon
+      loginButton.style.display = "none";
+      profileIcon.style.display = "inline-block"; // or "block", depending on the desired display style
+     
     } else {
       // User is not signed in
+      // Show the login button and hide the profile icon
+      loginButton.style.display = "inline-block"; // or "block", depending on the desired display style
+      profileIcon.style.display = "none";
     }
   });
-  
+
   const provider = new firebase.auth.GoogleAuthProvider();
-  
-  document.getElementById('googlesign').addEventListener('click', (e) => {
+ 
+  document.getElementById('googlesignup').addEventListener('click', (e) => {
     e.preventDefault();
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        // Handle successful authentication
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        // Handle authentication error
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
+  firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+      // Handle successful authentication
+      const user = result.user;
+      console.log(user);
+      // Hide the login button and display the profile icon
+      window.location.href = "./home.html";
+     loginButton.style.display = "none";
+      profileIcon.style.display = "inline-block"; // or "block", depending on the desired display style
+     
+    })
+    .catch((error) => {
+      // Handle authentication error
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+    });
   });
-  // ...
-
-
-// ...
+    // Signout
+ 
+ 
+    
