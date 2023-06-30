@@ -12,9 +12,8 @@ body{
 }
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
-    max-height: 450px;
     min-height: 90px;
     min-width: 320px;
 }
@@ -38,10 +37,12 @@ th {
 
 td{
     font-size: 16px;
-    height: 40px;
+    height: 80px;
     border-right: black;
     border-right-width: 1px;
     border-right-style: solid;
+    text-align: center;
+
 }
 
 
@@ -116,7 +117,7 @@ dialog::backdrop{
     border: black;
     border-width:1px;
     border-style: solid;
-    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.674) ;
 }
 
 
@@ -176,23 +177,50 @@ dialog:modal form{
 .claim, .claimed{
     padding: 2px 20px;
     border-radius: 10px;
-    background-color: #637778;
     font-size: 15px;
     font-weight: bold;
     border: none;
-    color: rgb(244, 244, 244);
     cursor: pointer;
     margin: 5px;
 }
 
-.claim:focus{
+.claim{
     color: rgb(41, 135, 41);
     background-color: #c4c4c4;
 }
 
-.claimed:focus{
+.claimed{
     color: rgb(177, 1, 1);
     background-color: #c4c4c4;
+}
+
+.id{
+    width: 5rem;
+}
+
+.dof{
+    width: 9rem;
+}
+
+.location{
+    width: 18rem;
+}
+
+.item-desc{
+    width: 18rem;
+}
+
+.quantity{
+    width: 5rem;
+}
+
+.action{
+    width: 10rem;
+}
+
+table{
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 @media(max-width:626px){
@@ -218,3 +246,5 @@ dialog:modal form{
         padding: 20px 10px;
     }
 }
+
+

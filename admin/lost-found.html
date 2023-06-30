@@ -101,17 +101,19 @@
 
         
     <table>
-        <tr class="lf-heading"><th  class="lf-heading-in" colspan="5">Lost and Found details</th></tr>
+        <tr class="lf-heading"><th  class="lf-heading-in" colspan="6">Lost and Found details</th></tr>
         <tr>
-            <th>Date of Found</th>
-            <th>Location Found</th>
-            <th>Item Description</th>
-            <th>Quantity</th>
-            <th>Action</th>
+            <th class="id">Id</th>
+            <th class="dof">Date of Found</th>
+            <th class="location">Location Found</th>
+            <th class="item-desc">Item Description</th>
+            <th class="quantity">Quantity</th>
+            <th class="action">Action</th>
         </tr>
 
         <?php foreach ($lostItems as $item): ?>
             <tr>
+                <td><?php echo $item["id"]; ?></td>
                 <td><?php 
                 $formattedDate = date("d-m-Y", strtotime($item["date"]));
                 echo $formattedDate;

@@ -78,7 +78,6 @@ tr:nth-child(even) {
 }
 
 #open-notification{
-
     padding: 20px 30px;
     border-radius: 13px;
     background-image: linear-gradient(to right,#14B1B2,white);
@@ -90,8 +89,7 @@ tr:nth-child(even) {
     border-width: 2px;
     border-style: solid;
     cursor: pointer;
-
-
+    margin-top: 10px;
 }
 
 #open-notification:hover{
@@ -99,7 +97,7 @@ tr:nth-child(even) {
 }
 
 #open-notification:active{
-    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.674) ;
 }
 
 
@@ -185,4 +183,34 @@ dialog::backdrop{
         justify-content: center !important;
     }
 
+}
+
+#select{
+    width: 8px;
+    text-align:center;
+}
+
+#item-id{
+    width: 90px;
+    text-align:center;
+}
+
+#message{
+    width: 600px;
+    text-align:center;
+}
+
+#dot{
+    width: 160px;
+    text-align:center;
+}
+
+.container form{
+    max-width: 1000px !important;
+}
+
+.container form table{
+    width: 600px;
+    max-height: 500px;
+    overflow-y: scroll;
 }

@@ -74,10 +74,10 @@ $result = $conn->query($sql);
 
             <?php while ($row = $result->fetch_assoc()) { ?>
                 <tr>
-                    <td><input type="checkbox" name="selectedRows[]" value="<?php echo $row['id']; ?>"></td>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['message']; ?></td>
-                    <td><?php echo $row['dateTime']; ?></td>
+                    <td id="select"><input type="checkbox" name="selectedRows[]" value="<?php echo $row['id']; ?>"></td>
+                    <td id="item-id"><?php echo $row['id']; ?></td>
+                    <td id="message"><?php echo $row['message']; ?></td>
+                    <td id="dot"><?php echo $row['dateTime']; ?></td>
                     <!-- Add more columns here as needed -->
                 </tr>
             <?php } ?>
