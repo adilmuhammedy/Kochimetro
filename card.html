@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Metro Card Application</title>
+  <link rel="stylesheet" type="text/css" href="card.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Metro Card Application</h1>
+    
+    <div class="card-content">
+      <form id="metroForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email id">Email:</label>
+            <input type="text" id="email" required>
+          </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+        </div>
+
+        <div class="form-group">
+          <label for="PhoneNumber">Ph no:</label>
+          <input type="integer" id="PhoneNumber" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="passengerType">Passenger Type:</label>
+          <select id="passengerType" required>
+            <option value="">Select Type</option>
+            <option value="normal">Student</option>
+            <option value="senior">Senior Citizen</option>
+          </select>
+        </div>
+        
+        <button type="button" onclick="applyMetroCard()">Apply</button>
+      </form>
+  
+    
+  
+  <script src="card.js"></script>
+</body>
+</html>
+
