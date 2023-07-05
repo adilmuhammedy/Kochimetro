@@ -94,7 +94,7 @@ app.post('/submit-form',cors(), async (req, res) => {
   } catch (error) { 
     console.error(error);
   }
-  console.log("fare reqwqfafq:",fare)
+  console.log("fare hehe123:",fare)
   const order =  await instance.orders.create({ amount: fare*100, currency: 'INR', receipt: 'receipt1', payment_capture: '0' });
   console.log("order",order);
   const redirectUrl = `confirmation.html?fare=${fare}&order_id=${order.id}`;
