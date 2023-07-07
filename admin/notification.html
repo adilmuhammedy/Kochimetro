@@ -61,33 +61,51 @@ $result = $conn->query($sql);
 
     <div class="container">
 
-        <form method="POST" action="">
-        <table>
-            <tr><th class="noti-head" colspan="4">NOTIFICATIONS/ALERTS</th></tr>
-            <tr>
-                <th>Select</th>
-                <th>Id</th>
-                <th>Mesaage</th>
-                <th>Date and Time</th>
-                <!-- Add more columns here as needed -->
-            </tr>
+            <form method="POST" action="">
 
-            <?php while ($row = $result->fetch_assoc()) { ?>
-                <tr>
-                    <td id="select"><input type="checkbox" name="selectedRows[]" value="<?php echo $row['id']; ?>"></td>
-                    <td id="item-id"><?php echo $row['id']; ?></td>
-                    <td id="message"><?php echo $row['message']; ?></td>
-                    <td id="dot"><?php echo $row['dateTime']; ?></td>
-                    <!-- Add more columns here as needed -->
-                </tr>
-            <?php } ?>
-        </table>
+                <div class="table-container">
 
-        <br>
-        <button type="submit" name="delete" id="delete1">Delete</button>
+                    <table class="table-data">
 
-        </form>
-        <button id="open-notification">Add new notification</button>
+                        <thead>
+                            <tr><th class="noti-head" colspan="4">NOTIFICATIONS/ALERTS</th></tr>
+    
+                            <tr>
+                                <th>Select</th>
+                                <th>Id</th>
+                                <th>Mesaage</th>
+                                <th>Date and Time</th>
+                                <!-- Add more columns here as needed -->
+                            </tr>
+
+                        </thead>
+                        
+                        <tbody>
+
+                            <?php while ($row = $result->fetch_assoc()) { ?>
+                                <tr>
+                                    <td id="select"><input type="checkbox" name="selectedRows[]" value="<?php echo $row['id']; ?>"></td>
+                                    <td id="item-id"><?php echo $row['id']; ?></td>
+                                    <td id="message"><?php echo $row['message']; ?></td>
+                                    <td id="dot"><?php echo $row['dateTime']; ?></td>
+                                    <!-- Add more columns here as needed -->
+                                </tr>
+                            <?php } ?>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <br>
+                <button type="submit" name="delete" id="delete1">Delete</button>
+        
+                </form>
+
+                <div class="add-new">
+                    <button id="open-notification">Add new notification</button>
+                </div>
+
+        
 
         <dialog id="notification-modal">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -105,6 +123,8 @@ $result = $conn->query($sql);
         </dialog>
 
     </div>
+
+    
 
     
 

@@ -55,7 +55,9 @@
 
 </head>
 <body>
-    <?php
+
+    <div class="container">
+        <?php
 
     include 'config.php';
 
@@ -97,83 +99,88 @@
     ?>
 
 
-    <div class="container">
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr class="lf-heading"><th  class="lf-heading-in" colspan="6">Lost and Found details</th></tr>
+                <tr>
+                    <th class="id">Id</th>
+                    <th class="dof">Date of Found</th>
+                    <th class="location">Location Found</th>
+                    <th class="item-desc">Item Description</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="action">Action</th>
+                </tr>
+            </thead>
 
+            <tbody>
         
-    <table>
-        <tr class="lf-heading"><th  class="lf-heading-in" colspan="6">Lost and Found details</th></tr>
-        <tr>
-            <th class="id">Id</th>
-            <th class="dof">Date of Found</th>
-            <th class="location">Location Found</th>
-            <th class="item-desc">Item Description</th>
-            <th class="quantity">Quantity</th>
-            <th class="action">Action</th>
-        </tr>
+                <?php foreach ($lostItems as $item): ?>
+                    <tr>
+                        <td><?php echo $item["id"]; ?></td>
+                        <td><?php 
+                        $formattedDate = date("d-m-Y", strtotime($item["date"]));
+                        echo $formattedDate;
+                        ?></td>
+                        <td><?php echo $item["location"]; ?></td>
+                        <td><?php echo $item["item"]; ?></td>
+                        <td><?php echo $item["quantity"]; ?></td>
+                        <td>
+                            <?php if ($item["claimed"] == false): ?>
+                                <button class="claim" onclick="showClaimForm(this, <?php echo $item["id"]; ?>)">Claim</button>
+                                
+                                <form class="claim-form" style="display: none;" onsubmit="return validateForm(<?php echo $item["id"]; ?>)" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                                    <input type="hidden" name="item_id" value="<?php echo $item["id"]; ?>">
+                                    <input type="text" name="name" placeholder="Name" required><br>
+                                    <input type="text" name="address" placeholder="Address" required><br>
+        
+                                    <select id="idType_<?php echo $item["id"]; ?>" name="idType" placeholder="Type of id" required>
+                                        <option value="">-- Select ID Type --</option>
+                                        <option value="Driving licence">Driving licence</option>
+                                        <option value="Aadhar card">Aadhar card</option>
+                                        <option value="Voter ID">Voter ID</option>
+                                    </select><br>
+        
+                                    <input type="text" id="idNumber_<?php echo $item["id"]; ?>" name="idNumber" placeholder="Id Number" required ><br>
+        
+                                    <input type="text" id="phoneNumber_<?php echo $item["id"]; ?>" name="phoneNumber" placeholder="Phone number" required ><br><br>
+        
+                                    <input type="submit" value="Submit"> <br><br>
+        
+                                    <button onclick="hideForm(this)">Back</button>
+        
+                                </form>
+        
+                                <div class="claimed-details" style="display: none;">
+                                    <p>Name: <span><?php echo $item["name"]; ?></span></p>
+                                    <p>Address: <span><?php echo $item["address"]; ?></span></p>
+                                    <p>ID Type: <span><?php echo $item["id_type"]; ?></span></p>
+                                    <p>ID Number: <span><?php echo $item["id_number"]; ?></span></p>
+                                    <p>Phone Number: <span><?php echo $item["phone"]; ?></span></p>
+                                    <button onclick="hideClaimedDetails(this)">Hide</button>
+                                </div>
+                            <?php else: ?>
+                                <button class="claimed" onclick="showClaimedDetails(this, <?php echo $item["id"]; ?>)" >Claimed</button>
+                                <div class="claimed-details" style="display: none;">
+                                    <p>Name: <span><?php echo $item["name"]; ?></span></p>
+                                    <p>Address: <span><?php echo $item["address"]; ?></span></p>
+                                    <p>ID Type: <span><?php echo $item["id_type"]; ?></span></p>
+                                    <p>ID Number: <span><?php echo $item["id_number"]; ?></span></p>
+                                    <p>Phone Number: <span><?php echo $item["phone"]; ?></span></p>
+                                    <button onclick="hideClaimedDetails(this)">Hide</button>
+                                </div>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
 
-        <?php foreach ($lostItems as $item): ?>
-            <tr>
-                <td><?php echo $item["id"]; ?></td>
-                <td><?php 
-                $formattedDate = date("d-m-Y", strtotime($item["date"]));
-                echo $formattedDate;
-                ?></td>
-                <td><?php echo $item["location"]; ?></td>
-                <td><?php echo $item["item"]; ?></td>
-                <td><?php echo $item["quantity"]; ?></td>
-                <td>
-                    <?php if ($item["claimed"] == false): ?>
-                        <button class="claim" onclick="showClaimForm(this, <?php echo $item["id"]; ?>)">Claim</button>
-                        
-                        <form class="claim-form" style="display: none;" onsubmit="return validateForm(<?php echo $item["id"]; ?>)" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                            <input type="hidden" name="item_id" value="<?php echo $item["id"]; ?>">
-                            <input type="text" name="name" placeholder="Name" required><br>
-                            <input type="text" name="address" placeholder="Address" required><br>
+            </tbody>
+        </table> 
+    </div>
 
-                            <select id="idType_<?php echo $item["id"]; ?>" name="idType" placeholder="Type of id" required>
-                                <option value="">-- Select ID Type --</option>
-                                <option value="Driving licence">Driving licence</option>
-                                <option value="Aadhar card">Aadhar card</option>
-                                <option value="Voter ID">Voter ID</option>
-                            </select><br>
-
-                            <input type="text" id="idNumber_<?php echo $item["id"]; ?>" name="idNumber" placeholder="Id Number" required ><br>
-
-                            <input type="text" id="phoneNumber_<?php echo $item["id"]; ?>" name="phoneNumber" placeholder="Phone number" required ><br><br>
-
-                            <input type="submit" value="Submit"> <br><br>
-
-                            <button onclick="hideForm(this)">Back</button>
-
-                        </form>
-
-                        <div class="claimed-details" style="display: none;">
-                            <p>Name: <span><?php echo $item["name"]; ?></span></p>
-                            <p>Address: <span><?php echo $item["address"]; ?></span></p>
-                            <p>ID Type: <span><?php echo $item["id_type"]; ?></span></p>
-                            <p>ID Number: <span><?php echo $item["id_number"]; ?></span></p>
-                            <p>Phone Number: <span><?php echo $item["phone"]; ?></span></p>
-                            <button onclick="hideClaimedDetails(this)">Hide</button>
-                        </div>
-                    <?php else: ?>
-                        <button class="claimed" onclick="showClaimedDetails(this, <?php echo $item["id"]; ?>)" >Claimed</button>
-                        <div class="claimed-details" style="display: none;">
-                            <p>Name: <span><?php echo $item["name"]; ?></span></p>
-                            <p>Address: <span><?php echo $item["address"]; ?></span></p>
-                            <p>ID Type: <span><?php echo $item["id_type"]; ?></span></p>
-                            <p>ID Number: <span><?php echo $item["id_number"]; ?></span></p>
-                            <p>Phone Number: <span><?php echo $item["phone"]; ?></span></p>
-                            <button onclick="hideClaimedDetails(this)">Hide</button>
-                        </div>
-                    <?php endif; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-
-    <button id="open-lost-item-modal">Add found items</button>
-
-
+    <div class="add-btn">
+        <button id="open-lost-item-modal">Add found items</button>
+    </div>
 
     <dialog id="lost-item-modal" class="lost-item-moda">
         <h4 class="det-head">Add detail of lost item : </h4>
@@ -204,7 +211,6 @@
     </dialog>
 
     </div>
-    
     
 
     <script>
