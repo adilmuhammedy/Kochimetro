@@ -840,6 +840,11 @@ td {
   opacity:0.8;
 }
 
+.hamburger span{
+  width: 15px;
+  height: 10px;
+}
+
 @media (max-width:767px) {
   .footer-dark .item:not(.social) {
     text-align:center;
