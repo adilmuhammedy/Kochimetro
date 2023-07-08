@@ -1,28 +1,37 @@
 .body{
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0px;
+    
 }
+
 .container{
-    padding: 0px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 ;
+    background-image: linear-gradient(white, #14B1B2);
+    height: 100vh;
 }
 
-form{
-
-    width: 100% !important;
-    max-height: 450px;
-    min-height: 90px;
-    min-width: 320px;
-
+.inner-container{
+    padding-top: 40px;
 }
+
+
 table {
     border-collapse: collapse;
     width: 100% !important;
-    max-height: 450px;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.table-data{
+/* 
     min-height: 90px;
     min-width: 320px;
+    overflow-y: scroll;
+    max-height: 600px; */
+
 }
 
 th, td {
@@ -36,8 +45,10 @@ th{
 }
 
 td{
-    height: 90px !important;
+    /* height: 60px !important; */
     font-size: 16px;
+    padding: 1px 10px;
+    text-align: center;
 }
 
 tr:nth-child(even) {
@@ -158,6 +169,23 @@ dialog::backdrop{
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.674) ;
 }
 
+.table-container {
+    height: 600px; /* Adjust the height as needed */
+    overflow: auto;
+}
+
+
+.table-data tbody {
+    height: 100%;
+    overflow: auto;
+}
+
+.add-new {
+    display: flex;
+    justify-content: center;
+}
+
+
 @media(max-width: 425px){
 
     .container{
@@ -207,10 +235,4 @@ dialog::backdrop{
 
 .container form{
     max-width: 1000px !important;
-}
-
-.container form table{
-    width: 600px;
-    max-height: 500px;
-    overflow-y: scroll;
 }
