@@ -3,7 +3,7 @@
 
 <head>
   <title>Lost and Found Items</title>
-  <link rel="stylesheet" type="text/css" href="lost-found.css">
+  <link rel="stylesheet" type="text/css" href="css/lost-found.css">
 </head>
 
 <body>
