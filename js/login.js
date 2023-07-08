@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
     apiKey: "AIzaSyDjBgmzmlwmso2pJ6IUSaROuAoRKLmynpw",
     authDomain: "metro-c2e76.firebaseapp.com",
@@ -12,7 +11,6 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   //email login
-  
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('loginbtn').addEventListener('click', function(e) {
       e.preventDefault();
@@ -20,13 +18,15 @@ const firebaseConfig = {
       var password = document.getElementById('password').value;
       console.log(email);
       console.log(password);
-    
       auth.signInWithEmailAndPassword(email, password)
         .then(function(userCredentials) {
           var user = userCredentials.user;
-          alert(user.email);
-          console.log(user.email);
-          alert("Login successful");
+          if (user.email === 'admin@example.com' && password === 'adminpassword') {
+            // Redirect to admin page
+            window.location.href = '/admin/admin_home.html';
+          } else {
+            alert("Login successful");
+          }
         })
         .catch(function(error) {
           var errorMessage = error.message;
@@ -34,12 +34,25 @@ const firebaseConfig = {
         });
     });
   });
-  
-  
   var loginButton = document.getElementById("login");
   var profileIcon = document.getElementById("profileIcon");
   const signoutButton = document.getElementById('signout');
-  
+  function signout() {
+    console.log("Signout clicked");
+    firebase.auth().signOut()
+      .then(() => {
+        // Sign-out successful.
+        console.log("User signed out");
+        alert("User signed out");
+        // Redirect or perform additional tasks after sign-out if needed.
+      })
+      .catch((error) => {
+        // An error happened during sign-out.
+        console.log(error);
+      });
+  }
+  // Add event listener to the signout button
+  signoutButton.addEventListener('click', signout);
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       var email = user.email;
@@ -50,38 +63,14 @@ const firebaseConfig = {
       // Hide the login button and display the profile icon
       loginButton.style.display = "none";
       profileIcon.style.display = "inline-block"; // or "block", depending on the desired display style
-     
+      signoutButton.style.display = "inline-block";
     } else {
       // User is not signed in
       // Show the login button and hide the profile icon
       loginButton.style.display = "inline-block"; // or "block", depending on the desired display style
       profileIcon.style.display = "none";
+      signoutButton.style.display = "none";
     }
   });
-
-  const provider = new firebase.auth.GoogleAuthProvider();
- 
-  document.getElementById('googlesignup').addEventListener('click', (e) => {
-    e.preventDefault();
-  firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      // Handle successful authentication
-      const user = result.user;
-      console.log(user);
-      // Hide the login button and display the profile icon
-      window.location.href = "./home.html";
-     loginButton.style.display = "none";
-      profileIcon.style.display = "inline-block"; // or "block", depending on the desired display style
-     
-    })
-    .catch((error) => {
-      // Handle authentication error
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-    });
-  });
-    // Signout
- 
- 
-    
+  
+    // Signout 

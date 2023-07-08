@@ -55,8 +55,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
 
   <link href="css/home.css" rel="stylesheet" href="">
   <!-- <link href="script/check.css" rel="stylesheet" href=""> -->
@@ -70,14 +71,10 @@
       <div class="top-in">
 
         <img class=" col-5 pattern" src="images/header_pattern_1.png" alt="">
-
-
       </div>
     </nav>
-
     <nav class="bottom ">
       <div class="row">
-
         <div class="bottom-left col-5">
           <img class="logo" src="images/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
           <p class="metro-name">KOCHI METRO</p>
@@ -91,32 +88,9 @@
           <!-- <button class="button1" type="button">Profile</button> -->
           <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button>
           <button id="profileIcon" class="avatar" style="display: none;"><!-- User profile icon --></button>
-          <button class="button2" type="button" id="signout" onclick='sinout()'>Signout</button>
-          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-
+          <button class="button2" type="button" id="signout">Signout</button>
           <script type="text/javascript" src="js/login.js"></script>
-          <script type="text/javascript">
-            function sinout() {
-                console.log("Signout clicked");
-                firebase.auth().signOut()
-                  .then(() => {
-                    // Sign-out successful.s
-                    console.log("User signed out");
-                    alert("User signed out")
-                    // Redirect or perform additional tasks after sign-out if needed
-                  })
-                  .catch((error) => {
-                    // An error happened during sign-out.
-                    console.log(error);
-                  });
-                }
-          </script>
-
         </div>
-
-
-
       </div>
     </nav>
   </section>
@@ -234,76 +208,70 @@
 
 
           <script>
-            // Submit form data to the backend
+  // Submit form data to the backend
+document.getElementById('formm').addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-            document.getElementById('formm').addEventListener('submit', async (event) => {
-              event.preventDefault();
+  // Get form data
+  const form = event.target;
+  const from = formm.from.value;
+  const to = formm.to.value;
+  const timeSlot = formm.time.value;
+  const ticketType = formm.ttype.value;
+  const passengers = formm.nop.value;
 
+  if (from == "" || to == "" || timeSlot == "" || ticketType == "" || passengers == "") {
+    alert("Please fill all the fields");
+    return;
+  } else if (from == to) {
+    alert("From and To cannot be the same");
+    return;
+  } else if (passengers <= 0) {
+    alert("Number of passengers cannot be less than 1");
+    return;
+  } else {
+    localStorage.setItem("from", from);
+    localStorage.setItem("to", to);
+    localStorage.setItem("timeSlot", timeSlot);
+    localStorage.setItem("ticketType", ticketType);
+    localStorage.setItem("passengers", passengers);
 
+    // Create the request body
+    const requestBody = {
+      from,
+      to,
+      timeSlot,
+      ticketType,
+      passengers,
+    };
 
-              // Get form data
-              const form = event.target;
-              const from = formm.from.value;
-              const to = formm.to.value;
-              const timeSlot = formm.time.value;
-              const ticketType = formm.ttype.value;
-              const passengers = formm.nop.value;
-              if (from == "" || to == "" || timeSlot == "" || ticketType == "" || passengers == "") {
-                alert("Please fill all the fields");
-                return;
-              }
-              else if (from == to) {
-                alert("From and To cannot be same");
-                return;
-              }
-              else if (passengers <= 0) {
-                alert("No of passengers cannot be less than 1");
-                return;
-              }
-              else {
-                localStorage.setItem("from", from);
-                localStorage.setItem("to", to);
-                localStorage.setItem("timeSlot", timeSlot);
-                localStorage.setItem("ticketType", ticketType);
-                localStorage.setItem("passengers", passengers);
+    try {
+      // Send a POST request to the backend
+      const response = await fetch('http://localhost:8080/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
 
+      // Handle the response
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("responseData and connection successful", responseData);
+        const redirectUrl = responseData.redirectUrl;
 
-                // Create the request body
-                const requestBody = {
-                  from,
-                  to,
-                  timeSlot,
-                  ticketType,
-                  passengers,
-                };
-                try {
-                  // Send a POST request to the backend
-                  const response = await fetch('http://localhost:8080/submit-form', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(requestBody),
-                  });
-                  // Handle the response
-                  if (response.ok) {
-                    const responseData = await response.json();
-                    console.log("responseData and connection successful", responseData);
-                    const redirectUrl = responseData.redirectUrl;
-                    window.location.href = redirectUrl; // Redirect to the confirmation pagewindow.location.href = "confirmation.html";  
+        // Redirect to the confirmation page
+        window.location.href = redirectUrl;
+      } else {
+        console.error('Form submission failed.');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }
+});
 
-
-                    // Redirect to the ticket.html page with the values
-                    window.location.href = url;
-                  }
-                  else {
-                    console.error('Form submission failed.');
-                  }
-                } catch (error) {
-                  console.error('An error occurred:', error);
-                }
-              }
-            });
           </script>
           <!--backend-->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -318,7 +286,7 @@
             <div class="s-box">
               <select id="select-box-1" class="select2" style="width: 250.88px;">
                 <option value="" class="pholder search-input search-input-container" disabled selected hidden>Click to
-                select</option>
+                  select</option>
                 <option value="1">Aluva</option>
                 <option value="2">Cochin University</option>
                 <option value="3">Edapally</option>
@@ -340,7 +308,6 @@
             <div class="col-md-6">
               <button class="btn-rect" onclick="openFareCalculator()">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
@@ -349,7 +316,6 @@
             <div class="col-md-6">
               <button class="btn-rect" onclick="window.location='lost-base.html'">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Lost and Found</div>
                 </div>
@@ -360,7 +326,6 @@
             <div class="col-md-6">
               <button class="btn-rect" onclick="window.location='tourguide.html'">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Tour Guide</div>
                 </div>
@@ -369,7 +334,6 @@
             <div class="col-md-6">
               <button class="btn-rect">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
@@ -380,7 +344,6 @@
             <div class="col-md-6">
               <button class="btn-rect">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
@@ -389,7 +352,6 @@
             <div class="col-md-6">
               <button class="btn-rect">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
