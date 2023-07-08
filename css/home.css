@@ -1,10 +1,9 @@
-body{
-  /* background: linear-gradient(180deg, #6CCACB 0%, #1B4949 100%); */
-  background: linear-gradient(179.38deg, #FCFDFE 0.54%, rgba(209, 221, 219, 0.63) 254.37%);
-  /* background: yellow; */
-  margin:0;
+body {
+  background: linear-gradient(180deg, #EAF8F8 10%, #B2E7E8 100%);
+  margin: 0;
   padding: 0;
 }
+
 .avatar {
   width: 40px; /* Adjust the size as needed */
   height: 40px; /* Adjust the size as needed */
@@ -743,12 +742,6 @@ td {
   text-align: left !important;
 }
 
-/* tr:hover {
-  background: #ededfa;
-} */
-
-/* 2nd design matx of btns  */
-
 .btn-rect {
   display: flex;
   /* align-items: center; */
@@ -761,24 +754,21 @@ td {
   border-radius: 10px;
   /* box-shadow: 0 0 5px #989797; */
   /* box-shadow: 0 0 5px #0d7070; */
-
+  font-weight: 400;
   margin-bottom: 15px;
   /* background: linear-gradient(180deg, #14B0B1 0%, rgba(20, 176, 177, 0) 100%); */
   background: #3599a2db;
   /* background: whitesmoke; */
   color:black;
-  font-family: cursive;
-
   text-decoration: none;
-
   transition: transform 0.3s ease; 
 }
 
 .btn-rect:hover{
   /* color: whitesmoke; */
   color: black;
-  background: linear-gradient(180deg, #0d7070 0%, rgba(10, 87, 87, 0) 100%);
-  transform: scale(1.05);
+  
+  transform: scale(1.15);
 }
 
 .btn-rect .btn-inner {
@@ -794,7 +784,6 @@ td {
 
 .btn-rect .btn-divider {
   display: inline-block;
-  border-right: 1px solid #ccc;
   height: 60%;
   margin-right: 10px;
 }

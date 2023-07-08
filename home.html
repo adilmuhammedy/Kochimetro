@@ -208,76 +208,70 @@
 
 
           <script>
-            // Submit form data to the backend
+  // Submit form data to the backend
+document.getElementById('formm').addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-            document.getElementById('formm').addEventListener('submit', async (event) => {
-              event.preventDefault();
+  // Get form data
+  const form = event.target;
+  const from = formm.from.value;
+  const to = formm.to.value;
+  const timeSlot = formm.time.value;
+  const ticketType = formm.ttype.value;
+  const passengers = formm.nop.value;
 
+  if (from == "" || to == "" || timeSlot == "" || ticketType == "" || passengers == "") {
+    alert("Please fill all the fields");
+    return;
+  } else if (from == to) {
+    alert("From and To cannot be the same");
+    return;
+  } else if (passengers <= 0) {
+    alert("Number of passengers cannot be less than 1");
+    return;
+  } else {
+    localStorage.setItem("from", from);
+    localStorage.setItem("to", to);
+    localStorage.setItem("timeSlot", timeSlot);
+    localStorage.setItem("ticketType", ticketType);
+    localStorage.setItem("passengers", passengers);
 
+    // Create the request body
+    const requestBody = {
+      from,
+      to,
+      timeSlot,
+      ticketType,
+      passengers,
+    };
 
-              // Get form data
-              const form = event.target;
-              const from = formm.from.value;
-              const to = formm.to.value;
-              const timeSlot = formm.time.value;
-              const ticketType = formm.ttype.value;
-              const passengers = formm.nop.value;
-              if (from == "" || to == "" || timeSlot == "" || ticketType == "" || passengers == "") {
-                alert("Please fill all the fields");
-                return;
-              }
-              else if (from == to) {
-                alert("From and To cannot be same");
-                return;
-              }
-              else if (passengers <= 0) {
-                alert("No of passengers cannot be less than 1");
-                return;
-              }
-              else {
-                localStorage.setItem("from", from);
-                localStorage.setItem("to", to);
-                localStorage.setItem("timeSlot", timeSlot);
-                localStorage.setItem("ticketType", ticketType);
-                localStorage.setItem("passengers", passengers);
+    try {
+      // Send a POST request to the backend
+      const response = await fetch('http://localhost:8080/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
 
+      // Handle the response
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("responseData and connection successful", responseData);
+        const redirectUrl = responseData.redirectUrl;
 
-                // Create the request body
-                const requestBody = {
-                  from,
-                  to,
-                  timeSlot,
-                  ticketType,
-                  passengers,
-                };
-                try {
-                  // Send a POST request to the backend
-                  const response = await fetch('http://localhost:8080/submit-form', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(requestBody),
-                  });
-                  // Handle the response
-                  if (response.ok) {
-                    const responseData = await response.json();
-                    console.log("responseData and connection successful", responseData);
-                    const redirectUrl = responseData.redirectUrl;
-                    window.location.href = redirectUrl; // Redirect to the confirmation pagewindow.location.href = "confirmation.html";  
+        // Redirect to the confirmation page
+        window.location.href = redirectUrl;
+      } else {
+        console.error('Form submission failed.');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }
+});
 
-
-                    // Redirect to the ticket.html page with the values
-                    window.location.href = url;
-                  }
-                  else {
-                    console.error('Form submission failed.');
-                  }
-                } catch (error) {
-                  console.error('An error occurred:', error);
-                }
-              }
-            });
           </script>
           <!--backend-->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -314,7 +308,6 @@
             <div class="col-md-6">
               <button class="btn-rect" onclick="openFareCalculator()">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
@@ -323,7 +316,6 @@
             <div class="col-md-6">
               <button class="btn-rect" onclick="window.location='lost-base.html'">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Lost and Found</div>
                 </div>
@@ -334,7 +326,6 @@
             <div class="col-md-6">
               <button class="btn-rect" onclick="window.location='tourguide.html'">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Tour Guide</div>
                 </div>
@@ -343,7 +334,6 @@
             <div class="col-md-6">
               <button class="btn-rect">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
@@ -354,7 +344,6 @@
             <div class="col-md-6">
               <button class="btn-rect">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
@@ -363,7 +352,6 @@
             <div class="col-md-6">
               <button class="btn-rect">
                 <div class="btn-inner">
-                  <img src="/images/html_pic.jpg">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Fare Calculator</div>
                 </div>
