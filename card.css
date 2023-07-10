@@ -69,3 +69,7 @@ button:hover {
 .new-card {
   margin: 10px;
 }
+
+.card h1{
+  font-size: 23px !important;
+}
