@@ -1,0 +1,35 @@
+body{
+    margin : 0;
+    padding: 0;
+}
+
+.time-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85.4vh;
+    width: 100%;
+    background-color: #86A3A4;
+}
+
+.time-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 30rem;
+    background-image: linear-gradient(#fff, #14B1B2);
+}
+
+dialog:modal{
+    padding: 50px 100px;
+    background-color: #4fb2b2;
+    border-radius: 15px;
+    border-width: 10px;
+    border-color: #637778;
+}
+
+dialog::backdrop{
+    background-color: rgba(160, 244, 235, 0.451);
+}
