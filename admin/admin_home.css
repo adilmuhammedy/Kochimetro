@@ -100,7 +100,6 @@ body{
 }
 
 .admin-details .details{
-    font-size: 18px;
     font-weight: 500;
     color: rgb(62, 63, 64);
 }
@@ -166,4 +165,14 @@ dialog::backdrop{
     text-align: center;
     font-size: xx-large;
 }
+
+
+
+
+
+
+
+
+
+
 
