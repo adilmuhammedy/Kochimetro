@@ -5,15 +5,47 @@ body {
 }
 
 .avatar {
-  width: 40px; /* Adjust the size as needed */
-  height: 40px; /* Adjust the size as needed */
+  width: 65px; /* Adjust the size as needed */
+  height: 55px; /* Adjust the size as needed */
   border-radius: 50%;
-  background-color: #ccc; /* Set the background color */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px; /* Adjust the font size as needed */
-  color: #fff; /* Set the icon color */
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    padding: 10px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 100%;
+  }
+  
+  .dropdown-content p {
+    margin: 0;
+  }
+  
+  .dropdown-content button {
+    margin-top: 10px;
+  }
+  
+  .avatar {
+    cursor: pointer;
+  }
+  
+  
+  .avatar {
+    cursor: pointer;
+  }
+  
+
 }
 .full-navbar{
   position: absolute;
