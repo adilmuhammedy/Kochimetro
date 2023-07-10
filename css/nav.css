@@ -6,15 +6,27 @@
 .top{
     height: 30px;
     background-color: #14B1B2;
+    padding: 0px 65px;
 }
 
-.bottom{
+.full-navbar .bottom{
     height: 80px;
     background-color: white;
 }
 
+.full-navbar .bottom .row{
+    height: 80px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 65px;
+    width: 100%;
+}
+
 .pattern{
     height: 30px;
+    min-width:320px !important;
 }
 
 .full-navbar .login li a{
@@ -50,6 +62,7 @@
 .bottom .container .row{
     display: flex;
     justify-content: space-between;
+
 }
 
 .full-navbar .bottom .bottom-left{
@@ -68,6 +81,7 @@
     padding-left: 30px;
     font-weight: 700;
     color: #495b5b;
+    margin-bottom: 0px;
 }
 
 .full-navbar .bottom .bottom-right{
@@ -77,13 +91,12 @@
     gap: 40px;
 }
 
-.full-navbar .bottom .bottom-right ul{
+.options{
     display: flex;
     list-style: none;
     margin: 0;
     gap: 40px;
     text-decoration: none;
-
 }
 
 .full-navbar .bottom .bottom-right ul a{
@@ -98,14 +111,7 @@
 }
 
 .full-navbar .bottom .bottom-right button{
-    background-color: #14B1B2;
-    padding: 5px 20px 5px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size:17px;
-    color: #000000d4;
-    font-weight: 600;
-    transition: 0.3s;
+    
 }
 
 .full-navbar .bottom .bottom-right button:hover{
@@ -113,6 +119,110 @@
     cursor: pointer;
 }
 
+.avatar {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+    border-radius: 50%;
+    background-color: #ccc; /* Set the background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; /* Adjust the font size as needed */
+    color: #fff; /* Set the icon color */
+
+    padding: 5px 20px 5px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size:17px;
+    color: #000000d4;
+    font-weight: 600;
+    transition: 0.3s;
+    
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 35px;
+    height: 7px;
+    display: block;
+    background-color: #647b79;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+
+  .toggle-input {
+    display: none;
+  }
+
+  @media(max-width:1024px){
+
+    .options{
+        display: none ;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 4px !important;
+    }
+
+
+    .options.show-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position:absolute;
+        background-color: #ffffff;
+        height: 220px;
+        right: 33px;
+        top: 110px;
+        padding: 30px 25px;
+        gap:30px
+    }
+
+    .full-navbar .bottom .metro-name{
+        font-size:19px;
+        padding-left: 30px;
+        font-weight: 700;
+        color: #495b5b;
+        margin-bottom: 0px;
+    }
+
+    .full-navbar .bottom .logo{
+        height: 40px;
+    }
+
+  }
+ 
+
+  @media(max-width:1024px){
+
+    .full-navbar .bottom .metro-name{
+        display: none;
+    }
+
+  }
+
+  @media(max-width:568px){
+
+    .top{
+        padding: 0 10px;
+    }
+
+    .full-navbar .bottom .row{
+        padding: 0px 25px;
+        margin: 0;
+    }
+    
+
+    
+
+  }
+ 
 
 
 

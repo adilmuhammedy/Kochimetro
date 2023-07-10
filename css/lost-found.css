@@ -11,9 +11,11 @@ body {
   }
   
   .lost-found-table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
   
   .lost-found-table th,

@@ -1,0 +1,216 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    padding: 0px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+
+    width: 100% !important;
+    max-height: 450px;
+    min-height: 90px;
+    min-width: 320px;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100% !important;
+    max-height: 450px;
+    min-height: 90px;
+    min-width: 320px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+}
+th{
+    font-size: 17px;
+    text-align: center;
+}
+
+td{
+    height: 90px !important;
+    font-size: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #c4c4c4;
+
+}
+
+.delete-btn {
+    display: none;
+}
+
+.noti-head {
+    text-align: center;
+    background-color: #14B1B2;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+#delete1{
+    padding: 10px 30px;
+    border-radius: 15px;
+    background-color: #14B1B2;
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#delete1:hover{
+    background-color: #9deded;
+}
+
+#delete1:active{
+    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+}
+
+#open-notification{
+    padding: 20px 30px;
+    border-radius: 13px;
+    background-image: linear-gradient(to right,#14B1B2,white);
+    border: none;
+    font-size: 18px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#open-notification:hover{
+    background-image: linear-gradient(to right,white,#14B1B2);
+}
+
+#open-notification:active{
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.674) ;
+}
+
+
+#notification-modal form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#notification-modal form label{
+    vertical-align:top;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.495);
+}
+
+
+#notification-modal{
+    background-color: #26adad;
+}
+
+#notification-modal form label{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#notification-modal form textarea{
+    font-size: 16px;
+    padding: 10px;
+}
+
+.noti-button{
+    gap: 4rem;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.noti-button button{
+    padding: 7px 15px;
+    background-color: aliceblue;
+    border-radius: 13px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.669);
+    cursor: pointer;
+}
+
+.noti-button button:active{
+    font-weight: 600;
+    border: black;
+    border-width:1px;
+    border-style: solid;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.674) ;
+}
+
+@media(max-width: 425px){
+
+    .container{
+        padding: 0px 10px;
+    }
+    #open-notification{
+        padding: 9px 9px !important;
+    }
+}
+
+@media(max-width: 375px){
+    #open-notification{
+
+        font-size: 15px;
+    }
+}
+
+@media(max-width:538px){
+    .noti-content{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+}
+
+#select{
+    width: 8px;
+    text-align:center;
+}
+
+#item-id{
+    width: 90px;
+    text-align:center;
+}
+
+#message{
+    width: 600px;
+    text-align:center;
+}
+
+#dot{
+    width: 160px;
+    text-align:center;
+}
+
+.container form{
+    max-width: 1000px !important;
+}
+
+.container form table{
+    width: 600px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
