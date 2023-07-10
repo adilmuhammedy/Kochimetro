@@ -1,5 +1,7 @@
 /* Existing CSS code */
-
+body{
+  background:#96dddf;
+}
 .card {
   position: absolute;
   left: 38%;
