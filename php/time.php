@@ -18,7 +18,7 @@
       <option value="Ernakulam_South">Ernakulam South</option>
       <option value="SN_Junction">SN Junction</option>
     </select>
-    <button type="submit" name="submit">Submit</button>
+    <button class="time-submit" type="submit" name="submit">Submit</button>
   </form>
 
   <p>Towards SN Junction : </p>
