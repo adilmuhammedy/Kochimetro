@@ -11,6 +11,9 @@ function applyMetroCard() {
   // Hide the form
   formElement.style.display = "none";
 
+  // Generate a unique application ID
+  var applicationId = generateApplicationId();
+
   // Create a new card element
   var card = document.createElement("div");
   card.className = "card new-card";
@@ -18,6 +21,11 @@ function applyMetroCard() {
   var cardContent = document.createElement("div");
   cardContent.className = "card-content";
   
+  var applicationIdLabel = document.createElement("label");
+  applicationIdLabel.textContent = "Application ID: ";
+  var applicationIdValue = document.createElement("span");
+  applicationIdValue.textContent = applicationId;
+
   var nameLabel = document.createElement("label");
   nameLabel.textContent = "Name: ";
   var nameValue = document.createElement("span");
@@ -43,6 +51,10 @@ function applyMetroCard() {
   var passengerTypeValue = document.createElement("span");
   passengerTypeValue.textContent = passengerType;
 
+  cardContent.appendChild(applicationIdLabel);
+  cardContent.appendChild(applicationIdValue);
+  cardContent.appendChild(document.createElement("br"));
+
   cardContent.appendChild(nameLabel);
   cardContent.appendChild(nameValue);
   cardContent.appendChild(document.createElement("br"));
@@ -64,4 +76,11 @@ function applyMetroCard() {
 
   card.appendChild(cardContent);
   cardContainer.appendChild(card);
+}
+
+function generateApplicationId() {
+  var timestamp = Date.now().toString(36); // Convert current timestamp to base36 string
+  var random = Math.floor(Math.random() * 10000).toString(36); // Generate random number and convert to base36 string
+  var applicationId = timestamp + random; // Combine timestamp and random number
+  return applicationId.toUpperCase(); // Convert to uppercase for better readability
 }
