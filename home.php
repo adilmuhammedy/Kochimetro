@@ -345,7 +345,7 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
               </button>
             </div>
             <div class="col-md-6">
-              <button class="btn-rect" onclick="window.location='lost-base.php'">
+              <button class="btn-rect" onclick="window.location='lost-base.html'">
                 <div class="btn-inner">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Lost and Found</div>
