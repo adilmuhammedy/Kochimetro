@@ -43,7 +43,7 @@ const firebaseConfig = {
       .then(() => {
         // Sign-out successful.
         console.log("User signed out");
-        alert("User signed out");
+     
         // Redirect or perform additional tasks after sign-out if needed.
       })
       .catch((error) => {
