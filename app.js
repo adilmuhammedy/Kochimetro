@@ -112,7 +112,7 @@ app.post('/submit-form',cors(), async (req, res) => {
   await generateQRCode(qrCodeText, qrCodeImagePath);
   response.qrCodeImage = qrCodeImagePath;
  
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -148,7 +148,7 @@ app.post('/create/orderId', (req, res) => {
 
 app.post('/api/verify/payment/', (req, res) => {
   try{
-    res.redirect("http://127.0.0.1:5500/ticket.html?+response.signatureIsValid");
+    res.redirect("http://localhost:3000/ticket.html?+response.signatureIsValid");
   //console.log("verify payment request",req.body);
   //let body=req.body.response.razorpay_order_id+"|"+req.body.response.razorpay_payment_id;
   //var crypto = require("crypto");
