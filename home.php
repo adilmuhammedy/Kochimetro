@@ -121,8 +121,8 @@
         <div class="bottom-right col-6">
           <ul>
             <li><a href="home.php">Home</a></li>
-            <!-- <li><a href="http://localhost:3000/">Water Metro</a></li> -->
-            <li><a href="#">About us</a></li>
+            <li><a href="http://localhost:3000/">Water Metro</a></li>
+            <li><a href="aboutus.html">About us</a></li>
           </ul>
           <!-- <button class="button1" type="button">Profile</button> -->
           <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button>
@@ -345,7 +345,7 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
               </button>
             </div>
             <div class="col-md-6">
-              <button class="btn-rect" onclick="window.location='lost-base.php'">
+              <button class="btn-rect" onclick="window.location='lost-base.html'">
                 <div class="btn-inner">
                   <div class="btn-divider"></div>
                   <div class="btn-name">Lost and Found</div>
@@ -381,10 +381,10 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
               </button>
             </div>
             <div class="col-md-6">
-              <button class="btn-rect">
+              <button class="btn-rect" onclick="window.location='router.html'">
                 <div class="btn-inner">
                   <div class="btn-divider"></div>
-                  <div class="btn-name">Fare Calculator</div>
+                  <div class="btn-name">Route Map</div>
                 </div>
               </button>
             </div>

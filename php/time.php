@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
         <nav class="top">
           <div class="top-in">
     
-            <img class=" pattern col-4" src="images/header_pattern_1.png" alt="">
+            <img class=" pattern col-4" src="../images/header_pattern_1.png" alt="">
             
           </div>
         </nav>
@@ -31,7 +32,7 @@
           <div class="row">
     
             <div class="bottom-left col-5">
-              <img class="logo" src="images/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
+              <img class="logo" src="../images/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
               <p class="metro-name">KOCHI METRO</p>
             </div>
             <div class="bottom-right col-6">
