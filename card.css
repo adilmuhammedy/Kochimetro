@@ -5,7 +5,7 @@ body{
 .card {
   position: absolute;
   left: 38%;
-  top:20%;
+  top:10px;
   width: 400px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -69,7 +69,7 @@ button:hover {
   position: absolute;
   margin-bottom: 15px;
   top: 80px;
-  left: -10px;
+  left: -170px;
 }
 
 .new-card {

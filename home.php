@@ -121,7 +121,7 @@
         <div class="bottom-right col-6">
           <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="http://localhost:3000/">Water Metro</a></li>
+            <!-- <li><a href="http://localhost:3000/">Water Metro</a></li> -->
             <li><a href="#">About us</a></li>
           </ul>
           <!-- <button class="button1" type="button">Profile</button> -->
@@ -239,7 +239,7 @@
 
             <div class="buttons">
               <button type="reset" id="my-reset-button" onclick="resetSelect2()">Reset</button>
-              <button type="submit" class="submit" id="submit">Show Route & Fare</button>
+              <button type="submit" class="submit" id="submit">Book Ticket</button>
             </div>
             <br>
           </form>

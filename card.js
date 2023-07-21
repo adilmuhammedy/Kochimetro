@@ -5,6 +5,28 @@ function applyMetroCard() {
   var phoneNumber = document.getElementById("PhoneNumber").value;
   var passengerType = document.getElementById("passengerType").value;
 
+      // Validate each input field
+      if (name.value === "") {
+        alert("Please enter your name.");
+
+      }
+
+      if (email.value === "") {
+        alert("Please enter your email.");
+      }
+
+      if (dob.value === "") {
+        alert("Please enter your date of birth.");
+      }
+
+      if (phoneNumber.value === "") {
+        alert("Please enter your mobile number.");
+      }
+
+      if (passengerType.value === "") {
+        alert("Please select your passenger type.");
+      }
+
   var formElement = document.getElementById("metroForm");
   var cardContainer = document.getElementById("cardContainer");
 

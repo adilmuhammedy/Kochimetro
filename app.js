@@ -10,34 +10,27 @@ const instance = new Razorpay({
   key_id: 'rzp_test_KoHAhlJPYY3SRe',
   key_secret: 'D27EAT8wqDj3zSZfWH8iaUIG',
 });
-
-
 app.use(express.json());
 app.use(express.static(path.join('Projects\Kochi Metro\code', 'code')));
 app.use(cors());
 app.options('/submit-form', cors()); // enable pre-flight request for POST request
 app.use((req, res, next) => {
-  //res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
-
-
 const url = "mongodb://localhost:27017";
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 };
-
 process.on('unhandledRejection', (err) => {
   console.error(err);
   // Handle the error appropriately
 });
-
-
 function generateTicketId() {
   const timestamp = Date.now();
   const random = Math.floor(Math.random() * 10000);
@@ -94,7 +87,6 @@ app.post('/submit-form',cors(), async (req, res) => {
   } catch (error) { 
     console.error(error);
   }
-  console.log("fare hehe123:",fare)
   const order =  await instance.orders.create({ amount: fare*100, currency: 'INR', receipt: 'receipt1', payment_capture: '0' });
   console.log("order",order);
   const redirectUrl = `confirmation.html?fare=${fare}&order_id=${order.id}`;
@@ -112,7 +104,7 @@ app.post('/submit-form',cors(), async (req, res) => {
   await generateQRCode(qrCodeText, qrCodeImagePath);
   response.qrCodeImage = qrCodeImagePath;
  
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -171,6 +163,52 @@ app.post('/api/verify/payment/', (req, res) => {
 app.get('' , (req,res) => {
   res.sendFile(path.join(__dirname, 'home.html'));
 });
+
+// const mongoClient = new MongoClient("mongodb://localhost:27017");
+
+// mongoClient.connect(() => {
+//   const db = mongoClient.db("ticketing");
+//   const collection = db.collection("tickets");
+
+//   const ticket = {
+//     from: from,
+//     to: to,
+//     timeSlot: timeSlot,
+//     ticketType: ticketType,
+//     passengers: passengers,
+//     fare: fare,
+//   };
+
+//   collection.insertOne(ticket, (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("Ticket saved successfully");
+//     }
+//   });
+// });
+
+
+// mongoClient.connect(() => {
+//   const db = mongoClient.db("ticketing");
+//   const collection = db.collection("tickets");
+
+
+// const ticket = collection.findOne({
+//   from: from,
+//   to: to,
+//   timeSlot: timeSlot,
+//   ticketType: ticketType,
+//   passengers: passengers,
+// });
+
+// if (ticket) {
+//   console.log(ticket);
+// } else {
+//   console.log("Ticket not found");
+// }
+// });
+
 
 app.listen(8080, () => {
   console.log('Server started on port 8080');

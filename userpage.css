@@ -1,0 +1,51 @@
+
+.full-navbar .login {
+    min-width:350px;
+    text-decoration: none;
+    font-size:17px;
+    display: flex;
+    gap: 15px;
+    padding: 2px 0px 2px 95px;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .full-navbar .login li a{
+    color: #000000d4;
+    cursor: pointer;
+  }
+  
+  .full-navbar .login li a:hover{
+    color: #ffffffd4;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .avatar {
+    width: 105px; /* Adjust the size as needed */
+    height: 55px; /* Adjust the size as needed */
+    border-radius: 50%;
+    background-color: #ffffff;
+    background: none;
+    cursor: pointer;
+  }
+  .full-navbar .bottom .bottom-right .button2{
+    left:1200px;
+    width:120px;
+    background-color: #14B1B2;
+    padding: 5px 20px 5px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size:17px;
+    color: #000000d4;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  .heading{
+    position:absolute;
+    left:100px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #000000d4;
+    margin: 0;
+    padding: 0;
+  }

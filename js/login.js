@@ -58,6 +58,15 @@ const firebaseConfig = {
       var email = user.email;
       var users = document.getElementById('user');
       var text = document.createTextNode(email);
+      var displayName = user.displayName; // Get the user's display name if available
+      console.log("users name="+displayName);
+      // Store the user's name in local storage
+      localStorage.setItem("userDisplayName", displayName || email);
+  
+      var users = document.getElementById('user');
+      var text = document.createTextNode(email);
+      // users.appendChild(text);
+      console.log(user);
       // users.appendChild(text);
       console.log(user);
       // Hide the login button and display the profile icon
