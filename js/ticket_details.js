@@ -3,6 +3,6 @@ function ticket_confirm(){
 }
 
 function edit_details(){
-    window.location = "home.html";
+    window.location = "home.php";
 }
 

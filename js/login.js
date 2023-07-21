@@ -43,6 +43,7 @@ const firebaseConfig = {
       .then(() => {
         // Sign-out successful.
         console.log("User signed out");
+        window.location.href = 'home.php';
      
         // Redirect or perform additional tasks after sign-out if needed.
       })
