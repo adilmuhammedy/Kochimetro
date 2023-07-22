@@ -420,35 +420,35 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
 
   <!-- footer  -->
   <div class="footer-dark">
-    <footer>
+  <footer>
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-md-3 item">
-            <h3>Services</h3>
+            <h3>Toll Free</h3>
             <ul>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">Hosting</a></li>
+              <li><a href="#">1800 425 0355</a></li>
+              <li><a href="#">0484 2846700</a></li>
+         
             </ul>
           </div>
           <div class="col-sm-6 col-md-3 item">
-            <h3>About</h3>
+            <h3>How to reach</h3>
             <ul>
-              <li><a href="#">Company</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="#">© 2019 Kochi Metro Rail Limited</a></li>
+              <li><a href="#">JLN Metro Station 4th Floor, Kaloor, Ernakulam 682017</a></li>
+
             </ul>
           </div>
           <div class="col-md-6 item text">
-            <h3>Company Name</h3>
-            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus
-              elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+            <h3>About us</h3>
+            <p>
+              Kochi Metro, where modern transportation meets the rich cultural heritage of Kerala. Our mission is to provide a safe, efficient, and eco-friendly mode of travel, connecting the people of Kochi. Join us on this remarkable journey towards sustainable urban mobility and a greener future for our beloved city..</p>
           </div>
-          <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a
-              href="#"><i class="icon ion-social-instagram"></i></a></div>
+          <div class="col item social"><a href="https://www.facebook.com/KochiMetroRail/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FMetroRailKochi%2F"><i
+                class="icon ion-social-twitter"></i></a><a href="https://www.linkedin.com/company/metrorailkochi/"><i class="icon ion-social-snapchat"></i></a><a
+              href="https://www.youtube.com/KochiMetroRail"><i class="icon ion-social-instagram"></i></a></div>
         </div>
-        <p class="copyright">Company Name © 2018</p>
+        <p class="copyright">Kochi Metro © 2019</p>
       </div>
     </footer>
   </div>
