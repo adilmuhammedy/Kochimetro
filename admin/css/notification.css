@@ -1,118 +1,163 @@
-.body{
-    margin: 0 !important;
-    padding: 0px;
-    
-}
-
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 ;
-    background-image: linear-gradient(white, #14B1B2);
-    height: 100vh;
-}
-
-.inner-container{
-    padding-top: 40px;
-}
 
 
-table {
-    border-collapse: collapse;
-    width: 100% !important;
-    overflow-y: auto;
-    max-height: 600px;
-}
-/*
-.table-data{
+/* notification.css */
 
-    min-height: 90px;
-    min-width: 320px;
-    overflow-y: scroll;
-    max-height: 600px; 
-
-}*/
-
-th, td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid black;
-}
-th{
-    font-size: 17px;
-    text-align: center;
-}
-
-td{
-    /* height: 60px !important; */
+/* Set default font size */
+body {
     font-size: 16px;
-    padding: 1px 10px;
-    text-align: center;
 }
 
-tr:nth-child(even) {
-    background-color: #c4c4c4;
-
-}
-
-.delete-btn {
-    display: none;
-}
-
-.noti-head {
-    text-align: center;
-    background-color: #14B1B2;
-    padding: 15px;
-    margin-top: 40px;
-    font-size: 23px;
-    font-weight: 700;
-}
-
-#delete1{
-    padding: 10px 30px;
+/* Style the delete and add buttons */
+button {
+    padding: 10px 20px;
     border-radius: 15px;
     background-color: #14B1B2;
-    border: black;
-    border-width: 2px;
-    border-style: solid;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #009999;
+}
+
+button:active {
+    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674);
+}
+
+#notification-modal {
+    background-color: #26adad;
+}
+
+#notification-modal form label {
     font-size: 17px;
     font-weight: 600;
 }
 
-#delete1:hover{
-    background-color: #9deded;
+#notification-modal form textarea {
+    font-size: 16px;
+    padding: 10px;
 }
 
-#delete1:active{
-    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
+.noti-button {
+    gap: 4rem;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-#open-notification{
-    padding: 20px 30px;
-    border-radius: 13px;
-    background-image: linear-gradient(to right,#14B1B2,white);
+.add-new {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the delete and add buttons */
+#delete1,
+#open-notification {
+    display: inline-block;
+}
+
+/* Add some spacing between the buttons */
+#delete1 {
+    margin-right: 20px;
+}
+
+#select {
+    width: 8px;
+    text-align: center;
+}
+
+#item-id {
+    width: 90px;
+    text-align: center;
+}
+
+#message {
+    width: 700px; /* Increase width of the message column */
+    text-align: center;
+}
+
+#dot {
+    width: 160px;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.heading {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+.lost-found-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.lost-found-table th,
+.lost-found-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.lost-found-table th {
+    padding: 12px;
+    background-color: #47A992;
+    font-weight: bold;
+}
+
+/* Reduce the width of the date and time column */
+.lost-found-table th:nth-child(4),
+.lost-found-table td:nth-child(4) {
+    width: 140px;
+}
+
+.lost-found-table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#delete1,
+#open-notification {
+    display: block;
+}
+  
+    button {
+    display: inline-block;
+    margin: 0 10px; /* Add small space between buttons */
+    background: #26adad;
+    font-size: 18px; /* Increase font size by 1.5 times */
+    padding: 15px 45px; /* Increase button size by 1.5 times */
     border: none;
-    font-size: 18px;
-    font-weight: bolder;
-    color: rgb(0, 0, 0);
-    border: black;
-    border-width: 2px;
-    border-style: solid;
     cursor: pointer;
-    margin-top: 10px;
-}
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.6s;
+  }
+  
+  button:hover {
+    background: linear-gradient(rgba(11, 61, 210, 0.75), rgba(10, 127, 230, 0.75));
+    color: white;
+  }
 
-#open-notification:hover{
-    background-image: linear-gradient(to right,white,#14B1B2);
-}
-
-#open-notification:active{
-    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.674) ;
-}
-
-
-#notification-modal form{
+  #notification-modal form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,11 +168,6 @@ tr:nth-child(even) {
 #notification-modal form label{
     vertical-align:top;
 }
-
-dialog::backdrop{
-    background-color: rgba(0, 0, 0, 0.495);
-}
-
 
 #notification-modal{
     background-color: #26adad;
@@ -143,96 +183,11 @@ dialog::backdrop{
     padding: 10px;
 }
 
-.noti-button{
-    gap: 4rem;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
+button#open-notification {
+    display: block;
+    margin: 0 auto;
 }
-
-.noti-button button{
-    padding: 7px 15px;
-    background-color: aliceblue;
-    border-radius: 13px;
-    border: none;
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.669);
-    cursor: pointer;
-}
-
-.noti-button button:active{
-    font-weight: 600;
-    border: black;
-    border-width:1px;
-    border-style: solid;
-    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.674) ;
-}
-
-.table-container {
-    height: 600px; /* Adjust the height as needed */
-    overflow: auto;
-}
-
-
-.table-data tbody {
-    height: 100%;
-    overflow: auto;
-}
-
-.add-new {
-    display: flex;
-    justify-content: center;
-}
-
-
-@media(max-width: 425px){
-
-    .container{
-        padding: 0px 10px;
-    }
-    #open-notification{
-        padding: 9px 9px !important;
-    }
-}
-
-@media(max-width: 375px){
-    #open-notification{
-
-        font-size: 15px;
-    }
-}
-
-@media(max-width:538px){
-    .noti-content{
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-}
-
-#select{
-    width: 8px;
-    text-align:center;
-}
-
-#item-id{
-    width: 90px;
-    text-align:center;
-}
-
-#message{
-    width: 600px;
-    text-align:center;
-}
-
-#dot{
-    width: 160px;
-    text-align:center;
-}
-
-.container form{
-    max-width: 1000px !important;
+button#delete1 {
+    display: block;
+    margin: 0 auto;
 }

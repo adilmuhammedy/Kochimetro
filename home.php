@@ -104,35 +104,34 @@
 </head>
 
 <body>
-  <section class="full-navbar ">
+<section class="full-navbar ">
 
-    <nav class="top">
-      <div class="top-in">
-
-        <img class=" col-5 pattern" src="images/header_pattern_1.png" alt="">
-      </div>
-    </nav>
-    <nav class="bottom ">
-      <div class="row">
-        <div class="bottom-left col-5">
-          <img class="logo" src="images/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
-          <p class="metro-name">KOCHI METRO</p>
-        </div>
-        <div class="bottom-right col-6">
-          <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="http://localhost:3000/">Water Metro</a></li>
-            <li><a href="aboutus.html">About us</a></li>
-          </ul>
-          <!-- <button class="button1" type="button">Profile</button> -->
-          <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button>
-          <img src="/images/avatarimg.png" id="profileIcon" class="avatar" style="display: none; cursor: pointer;"><!-- User profile icon --></img>
-          <button class="button2" type="button" id="signout">Signout</button>
-          <script type="text/javascript" src="js/login.js"></script>
-        </div>
-      </div>
-    </nav>
-  </section>
+<nav class="top">
+  <div class="top-in">
+    <img class=" col-5 pattern" src="images/header_pattern_1.png" alt="">
+  </div>
+</nav>
+<nav class="bottom ">
+  <div class="row">
+    <div class="bottom-left col-5">
+      <img class="logo" src="images/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
+      <p class="metro-name">KOCHI METRO</p>
+    </div>
+    <div class="bottom-right col-6">
+      <ul>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="http://localhost:8000/">Water Metro</a></li>
+        <li><a href="#">About us</a></li>
+      </ul>
+      <!-- <button class="button1" type="button">Profile</button> -->
+      <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button>
+      <img src="/images/avatarimg.png" id="profileIcon" class="avatar"onclick="window.location.href='userpage.html'" style="display: none; cursor: pointer;"><!-- User profile icon --></img>
+      <button class="button2" type="button" id="signout">Signout</button>
+      <script type="text/javascript" src="js/login.js"></script>
+    </div>
+  </div>
+</nav>
+</section>
 
   </div>
 

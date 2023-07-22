@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <title>Lost and Found</title>
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/lost_found.css">
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -56,6 +57,7 @@
 </head>
 <body>
 
+
     <?php
 
     include 'config.php';
@@ -86,6 +88,7 @@
         $sql = "UPDATE found SET claimed=1, name='$name', address='$address', id_type='$idType' , id_number='$idNumber' , phone='$phoneNumber' WHERE id=$itemId";
         if ($conn->query($sql) === TRUE) {
             // Success
+            // echo '<script>reloadPage();</script>';
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -97,10 +100,74 @@
     $conn->close();
     ?>
 
+<section class="full-navbar ">
+
+<nav class="top">
+  <div class="top-in">
+
+    <img class=" pattern col-4" src="../css/header_pattern_1.png" alt="">
+    
+  </div>
+</nav>
+
+<nav class="bottom ">
+  <div class="row">
+
+    <div class="bottom-left col-5">
+      <img class="logo" src="../css/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
+      <p class="metro-name">KOCHI METRO</p>
+    </div>
+    <div class="bottom-right col-6">
+      <ul class="options">
+        <li><a href="../admin_home.html">Home</a></li>
+        <!-- <li><a href="#">Water Metro</a></li> -->
+        <li><a href="#">About us</a></li>
+      </ul>
+      <!-- <button class="button1" type="button">Profile</button> -->
+      <!-- <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button> -->
+      <!-- <button id="profileIcon" class="avatar">User profile icon</button> -->
+      <!-- <button class="button2" type="button" id="signout" onclick='sinout()'>Signout</button> -->
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+      <script type="text/javascript" src="js/login.js"></script>
+      <script type="text/javascript">
+        function sinout() {
+            console.log("Signout clicked");
+            firebase.auth().signOut()
+              .then(() => {
+                // Sign-out successful.s
+                console.log("User signed out");
+                alert("User signed out")
+                // Redirect or perform additional tasks after sign-out if needed
+              })
+              .catch((error) => {
+                // An error happened during sign-out.
+                console.log(error);
+              });
+            }
+      </script>
+
+      <!--Hamburger-->
+      <div class="hamburger">
+        <input type="checkbox" id="toggle-hamburger" class="toggle-input">
+        <label for="toggle-hamburger"></label>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </div>
+    </nav>
+
+</section>
+
+
     <div class="container">
 
         
-    <table>
+    <table class="lost-found-table">
         <tr class="lf-heading"><th  class="lf-heading-in" colspan="6">Lost and Found details</th></tr>
         <tr>
             <th class="id">Id</th>
@@ -139,9 +206,9 @@
 
                             <input type="text" id="idNumber_<?php echo $item["id"]; ?>" name="idNumber" placeholder="Id Number" required ><br>
 
-                            <input type="text" id="phoneNumber_<?php echo $item["id"]; ?>" name="phoneNumber" placeholder="Phone number" required ><br><br>
+                            <input type="text" id="phoneNumber_<?php echo $item["id"]; ?>" name="phoneNumber" placeholder="Phone number" required ><br>
 
-                            <input type="submit" value="Submit"> <br><br>
+                            <input type="submit" value="Submit"> <br>
 
                             <!-- <button onclick="hideForm(this)">Back</button> -->
                             <button onclick="window.location='lost_found.php'">Back</button>
@@ -150,23 +217,23 @@
                         </form>
 
                         <div class="claimed-details" style="display: none;">
-                            <p>Name: <span><?php echo $item["name"]; ?></span></p>
-                            <p>Address: <span><?php echo $item["address"]; ?></span></p>
-                            <p>ID Type: <span><?php echo $item["id_type"]; ?></span></p>
-                            <p>ID Number: <span><?php echo $item["id_number"]; ?></span></p>
-                            <p>Phone Number: <span><?php echo $item["phone"]; ?></span></p>
+                            <p><b>Name: </b><span><?php echo $item["name"]; ?></span></p>
+                            <p><b>Address: </b><span><?php echo $item["address"]; ?></span></p>
+                            <p><b>ID Type: </b><span><?php echo $item["id_type"]; ?></span></p>
+                            <p><b>ID Number: </b><span><?php echo $item["id_number"]; ?></span></p>
+                            <p><b>Phone Number: </b><span><?php echo $item["phone"]; ?></span></p>
                             <!-- <button onclick="hideClaimedDetails(this)">Hide</button> -->
-                            <button onclick="window.location='lost_found.php'">Hide</button>
+                            <button class="hide-btn" onclick="window.location='lost_found.php'">Hide</button>
 
                         </div>
                     <?php else: ?>
                         <button class="claimed" onclick="showClaimedDetails(this, <?php echo $item["id"]; ?>)" >Claimed</button>
                         <div class="claimed-details" style="display: none;">
-                            <p>Name: <span><?php echo $item["name"]; ?></span></p>
-                            <p>Address: <span><?php echo $item["address"]; ?></span></p>
-                            <p>ID Type: <span><?php echo $item["id_type"]; ?></span></p>
-                            <p>ID Number: <span><?php echo $item["id_number"]; ?></span></p>
-                            <p>Phone Number: <span><?php echo $item["phone"]; ?></span></p>
+                            <p><b>Name: </b><span><?php echo $item["name"]; ?></span></p>
+                            <p><b>Address: </b><span><?php echo $item["address"]; ?></span></p>
+                            <p><b>ID Type: </b><span><?php echo $item["id_type"]; ?></span></p>
+                            <p><b>ID Number: </b><span><?php echo $item["id_number"]; ?></span></p>
+                            <p><b>Phone Number: </b><span><?php echo $item["phone"]; ?></span></p>
                             <!-- <button onclick="hideClaimedDetails(this)">Hide</button> -->
                             <button onclick="window.location='lost_found.php'">Hide</button>
 
@@ -177,10 +244,9 @@
         <?php endforeach; ?>
     </table>
 
+    <br><br>
     <button id="open-lost-item-modal">Add found items</button>
-
-
-
+    <div><p>&nbsp;</p></div>
     <dialog id="lost-item-modal" class="lost-item-moda">
         <h4 class="det-head">Add detail of lost item : </h4>
         <form action="lost_insert.php" method="POST" onsubmit="return validateQuantity()">
@@ -200,9 +266,9 @@
             </div>
             
             <div class="nav-btn">
-                <button type="submit" id="close-lost-item-modal">Submit</button>
 
                 <button type="close" id="close-lost-modal">Close</button>
+                <button type="submit" id="close-lost-item-modal">Submit</button>
 
             </div>
 
@@ -299,6 +365,10 @@
             alert("Successfully inserted lost item")
             return true;
         }
+
+    //     function reloadPage() {
+    //         window.location.href = window.location.href;
+    // }
 
     </script>
     <script src="../js/lost_found_admin.js"></script>

@@ -1,178 +1,139 @@
-body{
+/* admin_home.css */
+
+/* Reset some default styles */
+body, html {
     margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
-}
-
-.admin-main{
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Global styles */
+  .container {
     display: flex;
-    flex-direction: row;
-    height: 65vh;
-    padding-top: 80px;
-
-}
-
-.side-bar{
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  /* Right side styles */
+  .right-side {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .right-side .admin-head {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .right-side .admin-details {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #86A3A4;
-    width: 40%;
-    padding: 20px 80px;
-    gap: 10px;
-    border: #323738;
-    border-width: 40px;
-    border-style: solid;
-    height: 478px;
-}
-
-.side-bar h3{
-    text-align: top;
-    font-weight: 700;
-    color: #3d3d3d;
-    margin-bottom: 30PX;
-}
-
-
-.side-bar button{
-    font-size: 17px;
-    font-weight: 500;
-    padding: 20px 50px;
-    border-radius: 10px;
-    border-width: 4px;
-    border-style: solid;
-    border-color: rgb(80, 81, 81);
-    cursor: pointer;
-    background-image: linear-gradient(to right,#14B1B2,white);
-    width: 300px;
-}
-
-.side-bar button:hover{
-    background-image: linear-gradient(to right,white,#14B1B2);
-}
-
-
-.right-side{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    width: 60%;
-    padding-left: 10%;
-    height: 65vh;
-    
-}
-
-.admin-details{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    background-color: #4fb2b2a8;
-    border-radius: 20px;
-    height: 65vh;
-    border-color:#86A3A4 ;
-    border-style: solid;
-    border-width: 10px;
-    gap: 20px;
-}
-
-.admin-img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px auto;
-}
-
-.admin-img img{
-    height: 200px;
+  }
+  
+  .right-side .admin-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .right-side .details {
+    font-size: 16px;
+  }
+  
+  /* Sidebar styles */
+  .side-bar {
     width: 200px;
-    border-color: #323738;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 5px;
-}
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-top: 20px; /* Add some spacing between right-side and side-bar */
+  }
+  
+  .side-bar h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Horizontal placement of buttons */
+  .right-side .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .right-side .buttons button {
+    flex: 1;
+    padding: 8px 10px;
+    margin-right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .right-side .buttons button:last-child {
+    margin-right: 0;
+  }
+  
 
-.admin-details .details{
-    font-weight: 500;
-    color: rgb(62, 63, 64);
-}
-
-.admin-details .admin-head{
-    font-size: 30px;
-    font-weight: 700;
-    color: #323738;
-}
-
-
-dialog:modal{
-    padding: 30px 100px;
-    background-color: #4fb2b2;
-    border-radius: 15px;
-    border-width: 10px;
-    border-color: #637778;
-
-}
-
-dialog::backdrop{
-    background-color: rgba(0, 0, 0, 0.495);
-}
-
-#lost-form{
+  .right-side .admin-details {
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    width: 500px;
-    display: inline-block;
-}
-
-#lost-form input, textarea, select{
-    border-radius: 4px;
-    border: none;
-}
-
-#lost-form input, select{
-   height: 33px;
-   
-}
-
-#lost-form input,#lost-form select{
-    width: 320px;
-}
-
-#close-lost-item-modal{
-    padding: 10px 15px;
-    border-radius: 10px;
-    background-color: #4c5151;
-    border: none;
-    color: black;
-    font-weight: 600;
-    margin-left: 190px;
-    margin-top: 30px;
-}
-
-#close-lost-item-modal:hover{
-    background-color: #ffffff;
-}
-
-.modal-head{
+    align-items: center;
     text-align: center;
-    font-size: xx-large;
 }
 
+/* Increase the size of the admin photo */
+.right-side .admin-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
 
+/* Increase the font size of admin details */
+.right-side .details {
+    font-size: 18px;
+}
 
+/* Buttons placed horizontally with equal spacing and color transition */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .buttons button {
+    display: inline-block;
+    margin: 0 10px; /* Add small space between buttons */
+    background: rgb(234, 208, 9);
+    font-size: 18px; /* Increase font size by 1.5 times */
+    padding: 15px 45px; /* Increase button size by 1.5 times */
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.6s;
+  }
+  
+  .buttons button:hover {
+    background: linear-gradient(rgba(11, 61, 210, 0.75), rgba(10, 127, 230, 0.75));
+    color: white;
+  }
 
-
-
-
-
-
-
-
+  .button2{
+    left:1200px;
+    width:120px;
+    background-color: #14B1B2;
+    padding: 5px 20px 5px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size:17px;
+    color: #000000d4;
+    font-weight: 600;
+    transition: 0.3s;
+  }

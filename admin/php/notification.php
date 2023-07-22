@@ -54,15 +54,79 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notification update</title>
 
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/notification.css">
 
 </head>
 <body>
 
+<section class="full-navbar ">
+
+<nav class="top">
+  <div class="top-in">
+
+    <img class=" pattern col-4" src="../css/header_pattern_1.png" alt="">
+    
+  </div>
+</nav>
+
+<nav class="bottom ">
+  <div class="row">
+
+    <div class="bottom-left col-5">
+      <img class="logo" src="../css/Koch_Metro_Logo_1.png" alt="kochi-metro-logo">
+      <p class="metro-name">KOCHI METRO</p>
+    </div>
+    <div class="bottom-right col-6">
+      <ul class="options">
+        <li><a href="../admin_home.html">Home</a></li>
+        <!-- <li><a href="#">Water Metro</a></li> -->
+        <li><a href="#">About us</a></li>
+      </ul>
+      <!-- <button class="button1" type="button">Profile</button> -->
+      <!-- <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button> -->
+      <!-- <button id="profileIcon" class="avatar">User profile icon</button> -->
+      <!-- <button class="button2" type="button" id="signout" onclick='sinout()'>Signout</button> -->
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+      <script type="text/javascript" src="js/login.js"></script>
+      <script type="text/javascript">
+        function sinout() {
+            console.log("Signout clicked");
+            firebase.auth().signOut()
+              .then(() => {
+                // Sign-out successful.s
+                console.log("User signed out");
+                alert("User signed out")
+                // Redirect or perform additional tasks after sign-out if needed
+              })
+              .catch((error) => {
+                // An error happened during sign-out.
+                console.log(error);
+              });
+            }
+      </script>
+
+      <!--Hamburger-->
+      <div class="hamburger">
+        <input type="checkbox" id="toggle-hamburger" class="toggle-input">
+        <label for="toggle-hamburger"></label>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </div>
+    </nav>
+
+</section>
+
     <div class="container">
 
         <form method="POST" action="">
-        <table>
+        <table class="lost-found-table">
             <tr><th class="noti-head" colspan="4">NOTIFICATIONS/ALERTS</th></tr>
             <tr>
                 <th>Select</th>
@@ -84,10 +148,11 @@ $result = $conn->query($sql);
         </table>
 
         <br>
-        <button type="submit" name="delete" id="delete1">Delete</button>
-
+        <button type="submit" name="delete" id="delete1" class="button-container">Delete</button>
+        <br>
         </form>
-        <button id="open-notification">Add new notification</button>
+        <button id="open-notification" class="button-container">Add new notification</button>
+        <br><br>
 
         <dialog id="notification-modal">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

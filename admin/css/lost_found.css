@@ -7,8 +7,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 55px;
-    background-image: linear-gradient(white, #14B1B2);
+    padding-top: 25px;
+    /* background-image: linear-gradient(white, #14B1B2); */
 }
 
 table {
@@ -155,28 +155,6 @@ dialog:modal form{
     align-items: center;
 }
 
-#open-lost-item-modal{
-    padding: 20px 30px;
-    border-radius: 13px;
-    background-image: linear-gradient(to right,#14B1B2,white);
-    border: none;
-    font-size: 18px;
-    font-weight: bolder;
-    color: rgb(0, 0, 0);
-    border: black;
-    border-width: 2px;
-    border-style: solid;
-    cursor: pointer;
-}
-
-#open-lost-item-modal:hover{
-    background-image: linear-gradient(to right,white,#14B1B2);
-}
-
-#open-lost-item-modal:active{
-    box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.674) ;
-}
-
 .add-btn{
     display: flex;
     justify-content: center;
@@ -185,7 +163,7 @@ dialog:modal form{
 }
 
 .claim, .claimed{
-    padding: 2px 20px;
+    padding: 7px 20px;
     border-radius: 10px;
     font-size: 15px;
     font-weight: bold;
@@ -195,13 +173,15 @@ dialog:modal form{
 }
 
 .claim{
-    color: rgb(41, 135, 41);
-    background-color: #c4c4c4;
+    color: white;
+    background-color: rgb(41, 135, 41);
+    /* background-color: #c4c4c4; */
 }
 
 .claimed{
-    color: rgb(177, 1, 1);
-    background-color: #c4c4c4;
+    /* color: rgb(177, 1, 1); */
+    color: white;
+    background-color: rgb(177, 1, 1);
 }
 
 .id{
@@ -258,3 +238,108 @@ table{
 }
 
 
+
+.lost-found-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* border-radius: 100px; */
+}
+
+.lost-found-table th,
+.lost-found-table td {
+    padding: 4px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.lost-found-table th {
+    padding:15px;
+    background-color: #47A992;
+    font-weight: bold;
+}
+
+/* Reduce the width of the date and time column */
+.lost-found-table th:nth-child(4),
+.lost-found-table td:nth-child(4) {
+    width: 140px;
+}
+
+.lost-found-table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+#open-lost-item-modal {
+    display: inline-block;
+    margin: 0 10px; /* Add small space between buttons */
+    background: #26adad;
+    font-size: 18px; /* Increase font size by 1.5 times */
+    padding: 15px 45px; /* Increase button size by 1.5 times */
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.6s;
+  }
+  
+  #open-lost-item-modal:hover {
+    background: linear-gradient(rgba(11, 61, 210, 0.75), rgba(10, 127, 230, 0.75));
+    color: white;
+  }
+
+  /* CSS for the claim form */
+.claim-form {
+    display: none;
+  }
+  
+  .claim-form input[type="text"],
+  .claim-form select {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .claim-form input[type="submit"],
+  .claim-form button, table button {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #14B1B2;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  .claim-form button, table button {
+    background-color: #c4c4c4;
+    color: rgb(177, 1, 1);
+    margin-right: 0px;
+  }
+  
+  .claim-form input[type="submit"]:hover,
+  .claim-form button:hover,table button:hover {
+    background-color: #0C8A8B;
+  }
+  
+  .claim-form input[type="submit"]:active,
+  .claim-form button:active ,table button:active {
+    background-color: #0C8A8B;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .claim-form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .claim-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  

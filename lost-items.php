@@ -100,6 +100,7 @@
   <table class="lost-found-table">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Date of Found</th>
             <th>Location Found</th>
             <th>Item Description</th>
@@ -108,6 +109,7 @@
     </thead>
     <?php foreach ($lostItems as $item): ?>
             <tr>
+                <td><?php echo $item["id"]; ?></td>
                 <td><?php 
                 $formattedDate = date("d-m-Y", strtotime($item["date"]));
                 echo $formattedDate;
