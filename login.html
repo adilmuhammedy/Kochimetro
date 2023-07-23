@@ -50,6 +50,7 @@
                             window.location.href = "./home.html";
                             loginButton.style.display = "none";
                             profileIcon.style.display = "inline-block"; // or "block", depending on the desired display style
+                        
                         })
                         .catch((error) => {
                             // Handle authentication error
@@ -71,7 +72,7 @@
                                 // Redirect to admin page
                                 window.location.href = '/admin/admin_home.html';
                             } else {
-                                alert("Login successful");
+                                window.location.href = '/home.php';
                             }
                         })
                         .catch(function (error) {

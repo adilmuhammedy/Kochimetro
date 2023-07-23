@@ -127,7 +127,8 @@
       </ul>
       <!-- <button class="button1" type="button">Profile</button> -->
       <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button>
-      <img src="/images/avatarimg.png" id="profileIcon" class="avatar"onclick="window.location.href='userpage.html'" style="display: none; cursor: pointer;"><!-- User profile icon --></img>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <img src="/images/profileimg.png" id="profileIcon" class="avatar"onclick="window.location.href='userpage.html'" style="display: none; cursor: pointer;"><!-- User profile icon --></img>
       <button class="button2" type="button" id="signout">Signout</button>
       <script type="text/javascript" src="js/login.js"></script>
     </div>
@@ -269,7 +270,11 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
   } else if (passengers <= 0) {
     alert("Number of passengers cannot be less than 1");
     return;
-  } else {
+  } else if (passengers > 10) {
+    alert("Maximum number of passenger per booking is 10");
+    return;
+  } 
+  else {
     localStorage.setItem("from", from);
     localStorage.setItem("to", to);
     localStorage.setItem("timeSlot", timeSlot);
@@ -566,6 +571,7 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
   <script src="js/ticket_details.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

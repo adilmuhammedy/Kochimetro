@@ -9,7 +9,9 @@ body{
     align-items: center;
     height: 85.4vh;
     width: 100%;
-    background-color: #86A3A4;
+    /* background-color: #1f5557; */
+    background: linear-gradient(180deg, #EAF8F8 10%, #B2E7E8 100%);
+
 }
 
 .time-center{
@@ -19,17 +21,84 @@ body{
     align-items: center;
     height: 300px;
     width: 30rem;
-    background-image: linear-gradient(#fff, #14B1B2);
+    background-color: #14B1B2;
+    /* background: linear-gradient(180deg, #EAF8F8 10%, #B2E7E8 100%); */
+    border-radius: 20px;
+}
+ 
+.time-center h1{
+    font-size: 33px;
+    font-family:fantasy;
+    letter-spacing: 3px;
 }
 
 dialog:modal{
     padding: 50px 100px;
-    background-color: #4fb2b2;
+    background-color: #14B1B2;
     border-radius: 15px;
     border-width: 10px;
-    border-color: #637778;
+    border-color: #f0f0f0;
 }
 
 dialog::backdrop{
-    background-color: rgba(160, 244, 235, 0.451);
+    background-color: rgba(31, 50, 48, 0.553);
 }
+
+
+
+#open-time {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+#open-time {
+    display: inline-block;
+    margin: 0 auto;
+    background: rgb(234, 208, 9);
+    font-size: 16px;
+    padding: 6px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.6s;
+  }
+  
+  #open-time:hover {
+    background: linear-gradient(rgba(11, 61, 210, 0.75), rgba(10, 127, 230, 0.75));
+    color: white;
+  }
+
+  .end{
+    display: flex;
+  }
+
+  .time-center label{
+    font-size: 18px;
+  }
+
+  #close-modal{
+
+    display: inline-block;
+    margin: 0 auto;
+    background: rgb(234, 208, 9);
+    font-size: 16px;
+    padding: 6px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.6s;
+    margin-top: 15px;
+
+  }
+
+  .nav-btn{
+    display: flex !important;
+  }
+
+  #time-modal p{
+    font-size: 19px;
+  }
+
+  

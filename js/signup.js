@@ -14,17 +14,19 @@ const firebaseConfig = {
     e.preventDefault()
   const email=document.getElementById('email').value;
   const password=document.getElementById('password').value;
-auth.createUserWithEmailAndPassword(email, password)
+  auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
-    // Signed in 
+    // Signed in
     const user = userCredential.user;
-    alert("user created");
-    console.log(user);
-    // ...
+    console.log("User created:", user);
+
+    // Redirect to home.php after successful sign-up
+    window.location.href = "home.php";
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
+    console.error("Error:", errorCode, errorMessage);
+    alert("Error:"+ errorCode + errorMessage);
   });
-})
+});

@@ -162,8 +162,9 @@ $result = $conn->query($sql);
                     </div>
 
                     <div class="noti-button">
+                        <button name="close" id="close-n">Close</button>
                         <button type="submit" name="submit" id="add-content">Add</button>
-                        <button name="close" id="close-n">Close</button>   
+                           
                     </div>
                                  
                 </form>

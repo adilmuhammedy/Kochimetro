@@ -37,13 +37,13 @@
             </div>
             <div class="bottom-right col-6">
               <ul class="options">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="#">Water Metro</a></li>
-                <li><a href="#">About us</a></li>
+                <li><a href="../home.php">Home</a></li>
+                <li><a href="http://localhost:8000/">Water Metro</a></li>
+                <li><a href="../aboutus.html">About us</a></li>
               </ul>
               <!-- <button class="button1" type="button">Profile</button> -->
               <!-- <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button> -->
-              <button id="profileIcon" class="avatar"><!-- User profile icon --></button>
+              <!-- <button id="profileIcon" class="avatar">User profile icon</button> -->
               <!-- <button class="button2" type="button" id="signout" onclick='sinout()'>Signout</button> -->
               <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -89,7 +89,7 @@
             <h1>TRAIN TIMER </h1><br>
   
             <form method="post" action="">
-                <label for="station">Select your station:</label>
+                <label for="station"><b>Select your station &nbsp;:&nbsp;</b></label>
                 <select id="station" name="station">
                 <option value="Aluva">Aluva</option>
                 <option value="Muttom">Muttom</option>
@@ -99,7 +99,7 @@
                 <option value="Ernakulam_South">Ernakulam South</option>
                 <option value="SN_Junction">SN Junction</option>
                 </select><br><br>
-                <div>
+                <div class="end">
                     <button id="open-time" type="submit" name="submit">Submit</button>
                 </div>              
             </form>
@@ -110,9 +110,9 @@
 
 
     <dialog id="time-modal" class="lost-item-moda">
-            <p>Towards SN Junction : </p>
-            <div id="countdown"></div>
-            <p>Towards Aluva : </p>
+            <p><b>Towards SN Junction &nbsp;:&nbsp; </b></p>
+            <div id="countdown"></div><br>
+            <p><b>Towards Aluva &nbsp;:&nbsp; </b></p>
             <div id="countdown2"></div>
             <div class="nav-btn">
                 <button type="close" id="close-modal">Close</button>

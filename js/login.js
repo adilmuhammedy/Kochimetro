@@ -25,8 +25,9 @@ const firebaseConfig = {
             // Redirect to admin page
             window.location.href = '/admin/admin_home.html';
           } else {
-            alert("Login successful");
+            window.location.href = 'home.php';
           }
+
         })
         .catch(function(error) {
           var errorMessage = error.message;
