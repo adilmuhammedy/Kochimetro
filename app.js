@@ -162,7 +162,7 @@ app.post('/api/verify/payment/', (req, res) => {
 });
 
 app.get('' , (req,res) => {
-  res.sendFile(path.join(__dirname, 'home.html'));
+  res.sendFile(path.join(__dirname, 'home.php'));
 });
 
 // const mongoClient = new MongoClient("mongodb://localhost:27017");

@@ -46,6 +46,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metro</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -121,7 +123,7 @@
       <ul>
         <li><a href="home.php">Home</a></li>
         <li><a href="http://localhost:8000/">Water Metro</a></li>
-        <li><a href="#">About us</a></li>
+        <li><a href="aboutus.html">About us</a></li>
       </ul>
       <!-- <button class="button1" type="button">Profile</button> -->
       <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button>
@@ -444,8 +446,8 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
               Kochi Metro, where modern transportation meets the rich cultural heritage of Kerala. Our mission is to provide a safe, efficient, and eco-friendly mode of travel, connecting the people of Kochi. Join us on this remarkable journey towards sustainable urban mobility and a greener future for our beloved city..</p>
           </div>
           <div class="col item social"><a href="https://www.facebook.com/KochiMetroRail/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FMetroRailKochi%2F"><i
-                class="icon ion-social-twitter"></i></a><a href="https://www.linkedin.com/company/metrorailkochi/"><i class="icon ion-social-snapchat"></i></a><a
-              href="https://www.youtube.com/KochiMetroRail"><i class="icon ion-social-instagram"></i></a></div>
+                class="icon ion-social-twitter"></i></a><a href="https://www.linkedin.com/company/metrorailkochi/"><ion-icon name="logo-linkedin"></ion-icon></a><a
+              href="https://www.youtube.com/KochiMetroRail"><ion-icon name="logo-youtube"></ion-icon></a></div>
         </div>
         <p class="copyright">Kochi Metro © 2019</p>
       </div>
@@ -562,6 +564,8 @@ document.getElementById('formm').addEventListener('submit', async (event) => {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 
   <script src="js/ticket_details.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

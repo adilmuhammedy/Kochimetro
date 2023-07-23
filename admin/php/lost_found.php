@@ -121,7 +121,7 @@
       <ul class="options">
         <li><a href="../admin_home.html">Home</a></li>
         <!-- <li><a href="#">Water Metro</a></li> -->
-        <li><a href="#">About us</a></li>
+        <!-- <li><a href="#">About us</a></li> -->
       </ul>
       <!-- <button class="button1" type="button">Profile</button> -->
       <!-- <button class="button2" type="button" id="login" onclick="window.location.href='login.html'">Login</button> -->
